@@ -1,0 +1,111 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: User guesses a number between 1 and 10 and sees if it's correct
+
+2. Requirements
+INPUT:
+guess
+
+PROCESSING:
+1. Generate random number
+2. Get user's guess
+3. Compare user input to the random number and output results as well as see if it's been asked before and continue steps 2-3 until input is correct
+
+OUTPUT:
+message (either gonna be "Try again..." or "You guessed it. Congrats!" or "I really want a number between 1 and 10 (type -1 to EXIT):")
+
+DATA:
+guess = the user's guess (whole number) (1-100)
+number = the correct number which is randomly generated (whole number) (1-100)
+listGuesses = list of every user guess (list)
+
+3. Instructions
+10 output the introduction: "User guesses a number between 1 and 100 and sees if it's correct"
+15 create listGuesses
+*** getting the user input ***
+20 output the prompt: "What is your guess [1-100] (whole number): "
+30 input guess
+31 if guess is -1, skip to step 200
+32 if guess is not a number guessed previously (from the listGuesses), skip to step 35
+33 output label: "You already guessed" + guess + ". Guess again"
+34 skip to step 30
+35 if guess is between 1-100, skip to step 38
+36 output the label: "I really want a number between 1 and 100 (type -1 to EXIT): "
+37 skip to step 30
+38 add guess to listGuesses
+*** generate random number ***
+40 number = rand() % 100 + 1
+*** compares guess to correct number to see if it is corret or not ***
+50 if guess is equal to number, skip to step 120
+60 if guess is smaller than number, skip to step 90
+70 output label: "That's too high. guess again: "
+80 skip to step 30
+90 if guess is bigger than number, skip to step 70
+100 output label: "That's too low. guess again: "
+110 skip to step 30
+120 output the label: "You guessed it. Congrats!"
+200 EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user guesses 4 and gets it correctly
+Input: guess = 4
+Output: You guessed it. Congrats!
+10 User guesses a number between 1 and 100 and sees if it's correct
+15 listGuesses created
+20 What is your guess [1-100] (whole number): 
+30 guess = 4
+31 false
+32 true
+40 number = rand() % 100 + 1 = 4
+50 true
+120 You guessed it. Congrats!
+200 EXIT
+
+Test Case #2:
+The user guesses -1
+Input: guess = -1
+Output: 
+10 User guesses a number between 1 and 100 and sees if it's correct
+15 listGuesses created
+20 What is your guess [1-100] (whole number): 
+30 guess = -1
+31 true
+200 End
+
+Test Case #3:
+The user guesses a number already in the list such as 2. 
+Input: guess = 2, guess = 2
+Output: You already guessed 2. Guess again
+10 User guesses a number between 1 and 100 and sees if it's correct
+15 listGuesses created
+20 What is your guess [1-100] (whole number): 
+30 guess = 2
+31 false
+32 true
+40 number = rand() % 100 + 1 = 4
+50 false
+60 false
+20 What is your guess [1-100] (whole number): 
+30 guess = 2
+31 false
+32 false
+33 You already guessed 2. Guess again
+
+Test Case #4:
+The user inputs -100
+Input: guess = -100
+Output: I really want a number between 1 and 100 (type -1 to EXIT): 
+10 User guesses a number between 1 and 100 and sees if it's correct
+15 listGuesses created
+20 What is your guess [1-100] (whole number): 
+30 guess = 2
+31 false
+32 true
+35 false
+36 I really want a number between 1 and 100 (type -1 to EXIT): 
+
+
+
+

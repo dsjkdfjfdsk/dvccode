@@ -1,0 +1,24 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: 
+
+2. Requirements
+INPUT:
+
+
+PROCESSING:
+
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+
+DATA:
+
+
+3. Instructions
+10 
+
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:

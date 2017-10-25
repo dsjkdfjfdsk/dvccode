@@ -1,0 +1,85 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: User guesses a number between 1 and 10 and sees if it's correct
+
+2. Requirements
+INPUT:
+guess
+
+PROCESSING:
+1. Generate random number
+2. Get user's guess
+3. Compare user input to the random number and output results and continue steps 2-3 until input is correct
+
+OUTPUT:
+message (either gonna be "Try again..." or "You guessed it. Congrats!" or "I really want a number between 1 and 10 (type -1 to EXIT):")
+
+DATA:
+guess = the user's guess (whole number) (1-100)
+number = the correct number which is randomly generated (whole number) (1-100)
+
+3. Instructions
+10 output the introduction: "User guesses a number between 1 and 10 and sees if it's correct"
+*** getting the user input ***
+20 output the prompt: "What is your guess [1-10] (whole number): "
+30 input guess
+31 if guess is between 1-100, skip to step 40
+32 output the prompt: "I really want a number between 1 and 10 (type -1 to EXIT): "
+33 skip to step 30
+34 if guess is -1, skip to step 200
+35 skip to 31
+36 if guess is not a number gussed previously, skip to step 40
+37 output label: "You already guessed" + guess + ". Guess again"
+38 skip to step 20
+*** generate random number ***
+40 number = rand() % 10 + 1
+*** compares guess to correct number to see if it is corret or not ***
+50 if guess is equal to number, skip to step 110
+60 if guess is bigger than number, skip to step 80
+70 output label: "That's too high. guess again: "
+80 skip to step 30
+90 if guess is bigger than number, skip to step 120
+100 output label: "That's too low. guess again: "
+110 skip to step 30
+120 output the label: "You guessed it. Congrats!"
+200 EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user guesses 4 and gets it correctly
+Input: guess = 4
+Output: You guessed it. Congrats!
+10 User guesses a number between 1 and 10 and see if it's correct
+20 What is your guess [1-10] (whole number):
+30 guess = 4
+31 true
+40 number = rand() % 10 + 1 = 4
+50 true
+80 output the label: "You guessed it. Congrats!"
+200 EXIT
+
+Test Case #2:
+The user guesses -1
+Input: guess = -1
+Output: I really want a number between 1 and 10 (type -1 to EXIT): 
+10 User guesses a number between 1 and 10 and see if it's correct
+20 What is your guess [1-10] (whole number):
+30 guess = -1
+31 false
+32 I really want a number between 1 and 10 (type -1 to EXIT): 
+
+Test Case #3:
+The user guesses nothing and doesn't want to guess
+Input: guess = 
+Output: 
+10 User guesses a number between 1 and 10 and see if it's correct
+20 What is your guess [1-10] (whole number):
+30 guess = 
+31 false
+32 I really want a number between 1 and 10 (type -1 to EXIT): 
+33 guess = -1
+34 true
+200 EXIT
+
+

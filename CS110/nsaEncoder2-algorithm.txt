@@ -1,0 +1,126 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Converts each line of the user input's (from a file) so that each character is now the next character in the ASCII code.
+
+2. Requirements
+INPUT:
+filename
+
+PROCESSING:
+1. Get user input for the file to be encoded
+2. Encode each line of the file by increasing each character in the text by 1 ASCII value
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+userASCII
+
+DATA:
+userText = the line currently being encoded (text)
+userASCII = the user's line of text translated to the next character in the ASCII code (text)
+userTextLength = the length of the userText length (whole number)
+i = the current index of the userText that is being translated to ASCII (whole number)
+filename = the file name that the userTexts are located (text)
+lineNumber = current line number that is being encoded (whole number) 
+offset = array of numbers to increase the character by (array) (each number ranging from -20 to 20)
+offsetSize = random size (whole number) (5-10)
+b = index of the offset array (whole number)
+
+3. Instructions
+*** subprogram encodeText ***
+*** Get user input for the line of text ***
+20 input userText from filename located on lineNumber
+*** Encode userText to ASCII***
+40 set userASCII = ""
+43 set b = 0
+50 set userTextLength = userText.length()
+60 set i = 0
+70 if i >= userTextLength, skip to step 200
+75 if b >= offset's size, b = 0
+80 userASCII = userASCII + (userText[i] + offset[b])
+90 i = i + 1
+96 b = b + 1
+100 skip to step 70
+200 RETURN from subprogram encodeText with userASCII
+
+*** main algorithm ***
+10 output introduction: "Converts each line of the user input's (from a file) so that each character is now the next character in the ASCII code."
+*** initialize values ***
+11 set lineNumber = 0
+*** get name of file ***
+12 set offsetSize to a random number between 5 and 10
+13 create offset array with a random set of numbers ranging from (-20 to 20)
+14 open offset.txt and output the offset array into this file
+20 output prompt: "Please type in a name of the file (with the .txt extension) : "
+30 input filename
+40 open filename for input 
+50 open secret.txt for output
+60 get userASCII from subprogram encodeText 
+70 lineNumber = lineNumber + 1
+*** append encoded value to secret.txt***
+80 output userASCII to secret.txt
+90 output userASCII
+100 if EOF in filename skip to step 200
+110 skip to step 60
+*** Close files ***
+200 close filename
+210 close secret.txt
+210 END
+
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user inputs a filename called "input.txt" with "AB" and "BC", each on a seperate line
+Input: filename = "input.txt" 
+Output: 
+<J
+=K
+
+10 Converts each line of the user input's (from a file) so that each character is now the next character in the ASCII code.
+11 lineNumber = 0;
+13 offset = [-5, 8, 12, 6, 1]
+20 Please type in a name of the file (with the .txt extension) : 
+30 filename = "input.txt" 
+40 open input.txt for input 
+60 jump to subprogram encodeText 
+20 userText = "AB"
+40 userASCII = ""
+43 b = 0
+50 open secret.txt for output
+50 userTextLength = 2
+60 i = 0
+70 false
+75 false
+80 userASCII = '' + < = '<'
+90 i = 0 + 1 = 1
+70 false
+80 userASCII = '<' + J = "<J"
+90 i = 1 + 1 = 2
+70 true
+200 RETURN from subprogram encodeText with "<J"
+70 lineNumber = 0 + 1 = 1
+80 output "<J" to secret.txt
+90 <J
+100 false
+60 jump to subprogram encodeText 
+20 userText = "BC"
+40 userASCII = ""
+50 userTextLength = 2
+60 i = 0
+70 false
+75 false
+80 userASCII = "" + ("=") = "="
+90 i = 0 + 1 = 1
+70 false
+75 false
+80 userASCII = "=" + ("K") = "=K"
+90 i = 1 + 1 = 2
+70 true
+200 RETURN from subprogram encodeText with "=K"
+70 lineNumber = 1 + 1 = 2
+80 output "=K" to secret.txt
+90 =K
+100 true
+200 close filename
+210 close secret.txt
+210 END

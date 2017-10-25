@@ -1,0 +1,145 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: input number of scores to be input, then input that many scores, calculate the maximum score, average score, minimum score, and how many A grade scores.
+
+2. Requirements:
+--INPUT
+size
+scores
+
+--PROCESSING
+input size
+input scores (each score between 0-100)
+sort the scores from low to high
+calculate the maximum, minimum, and average score, and the number scores that are an A grade
+output the sorted scores
+output minimum score
+output high score
+output average score
+output the number of A grade scores
+
+
+--OUTPUT
+objective
+author
+user instructions
+prompt1 "How many scores? "
+prompt2 "Enter a score: "
+label1 "Sorted: "
+label2 "Minimum: "
+label3 "Maximum: "
+label4 "Average: "
+label5 "Number of A grades: "
+
+
+--DATA
+size-->>the number of values to be input (integer)
+array-Scores-->>dynamically defined for SIZE number of values (integer)
+max-->>maximum value of inputed values (integer)
+min-->>minimum value of inputed values (integer)
+sum-->>total of inputed values (integer)
+average-->>average value of inputed values (decimal)
+nGradeA-->>number of scores that are A grade
+temp-->>used for temporarily storing one of the values in the array in the swapping process to sort (integer)
+i-->>outer loop index for sorting (integer)
+j-->>inner loop index for sorting (integer)
+g -->>loop index for getting the whole array
+
+
+3. Algorithm Instructions
+***user information
+10 output objective
+20 output author
+30 output user instructions
+***initialize values
+40 set i = 0
+45 set temp = 0
+50 j = i + 1
+60 set sum = 0
+70 set average = 0
+80 set nGradeA = 0
+90 set max = 0
+100 set min = 0
+***input loop
+110 output prompt1
+120 input size
+130 initialize array-Scores[size]
+140 if count is bigger than or equal to size, skip to step 190
+150 output prompt2
+160 input array-Scores[i]
+170 g = g + 1
+175 sum = sum + array-Scores[i]
+176 if array-Scores[i] is less than 90, skip to step 180
+178 nGradeA = nGradeA + 1
+180 skip to step 140
+***Sort array
+190 if i is bigger than or equal to size, skip to step 290
+200 if j is bigger than or equal to size, skip to step 270
+210 if array-Scores[i] is less than or equal to array-Scores[j], skip to step 260
+220 temp = array-Scores[i] 
+230 array-Scores[i] = array-Scores[j]
+240 array-Scores[j] = temp
+250 j = j + 1
+260 skip to step 200 
+270 i = i + 1
+280 skip to step 190
+***calculate average
+290 average = sum / size
+***calculate minimum and maximum
+300 minimum = array-Scores[0]
+310 max = array-Scores[size-1]
+***output results
+320 output label1  + array-Scores
+330 output label2 + minimum
+340 output label3 + max
+350 output label4 + average
+360 output label5 + nGradeA 
+999 END
+
+
+4. Test Cases
+Test Case #1: SIZE=4. Input values: 96 94 64 92.  Expected results: minimum=64. maximum=96. average=86.5 number of A grades=3.
+40 i = 0
+45 temp = 0
+50 j = i + 1
+60 sum = 0
+70 average = 0
+80 nGradeA = 0
+90 max = 0
+100 min = 0
+***input loop
+110 output prompt1
+120 input size
+130 initialize array-Scores[size]
+140 if count is bigger than or equal to size, skip to step 190
+150 output prompt2
+160 input array-Scores[i]
+170 g = g + 1
+175 sum = sum + array-Scores[i]
+176 if array-Scores[i] is less than 90, skip to step 180
+178 nGradeA = nGradeA + 1
+180 skip to step 140
+***Sort array
+190 if i is bigger than or equal to size, skip to step 290
+200 if j is bigger than or equal to size, skip to step 270
+210 if array-Scores[i] is less than or equal to array-Scores[j], skip to step 260
+220 temp = array-Scores[i] 
+230 array-Scores[i] = array-Scores[j]
+240 array-Scores[j] = temp
+250 j = j + 1
+260 skip to step 200 
+270 i = i + 1
+280 skip to step 190
+***calculate average
+290 average = sum / size
+***calculate minimum and maximum
+300 minimum = array-Scores[0]
+310 max = array-Scores[size-1]
+***output results
+320 output label1  + array-Scores
+330 output label2 + minimum
+340 output label3 + max
+350 output label4 + average
+360 output label5 + nGradeA 
+999 END

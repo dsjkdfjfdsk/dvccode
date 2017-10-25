@@ -1,0 +1,35 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1a. Explain in words what are the 3 control structures and how each of the 3 control structures 
+works in general.
+The 3 control structures are Sequence, Selection, and Repetition. 
+The Sequence structure is the top down in order execution of code statements (ex: like following a cooking recipe). 
+The Selection structure is used for decisions. For example, if a condition is true, then the program does something. 
+The Repetition structure is used for looping for repeating a set of instructions multiple times.
+
+1b. Explain in words what are the 3 kinds of programming errors and give examples.
+The 3 kinds of programming errors are Syntax errors, Logic errors, and Runtime/Exeuction errors. 
+A Syntax error is caused by the misuse of the language.
+An example of a Syntax error is when someone mispells a term in a program which prevents the program from compiling.
+A Logic error is when there is a design flaw in the program. 
+An example of a Logic error is someone is told to close the front door to prevent flies from coming in when 
+the back door is open (since the back door could also let in flies).
+A Runtime/Execution error occurs when a program asks the computer to do something that the computer can't do reliably. 
+An example of a Runtime/Execution errors are the divide by zero error in a calculator or the 
+
+1c. What are the 5 functions of all computers?
+The 5 functions of all computers are Input, Processing, Output, Store Data, Communicate.
+
+1d. Explain in words what is a statement and what is an expression and what is the difference.
+A statement is like a complete sentence while an expression is like a phrase. Statements can be run alone while expressions can't 
+
+1e. What are the 2 major categories of software and the 3 subcategories of each.
+The 2 major categories of software are Systems and Application. The 3 subcategories of Systems Software 
+are Operating, Utlilities, and Language Translators (Compilers, Interpreters, Assemblers). 
+The 3 subcategories of Application Software are Productivity, Education, and Entertainment. 
+
+1f. What are the 3 language translators and how do they work? They translate what to what?
+The 3 language translators are Compilers, Interpreters, and Assemblers. They all convert human programmed 
+code into computer programs. Specifically, they take an input text file and convert it into a program file 
+or executable. 

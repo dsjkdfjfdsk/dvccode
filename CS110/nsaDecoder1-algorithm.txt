@@ -1,0 +1,111 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Decodes each line of the user input's (from a file) so that each character is now the previous character in the ASCII code.
+
+2. Requirements
+INPUT:
+filename
+
+PROCESSING:
+1. Get user input for the file to be decoded 
+2. Decode each line of the file 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+userDecoded 
+
+DATA:
+userText = the line currently being decoded(text)
+userDecoded = the user line of text decoded so that each char is converted to the previous char (text)
+userTextLength = the length of the userText length (whole number)
+i = the current index of the userText that is being translated to ASCII (whole number)
+filename = the file name that the userTexts are located (text)
+lineNumber = current line number that is being encoded (whole number) 
+
+3. Instructions
+*** subprogram decodeText ***
+*** Get user input for the line of text ***
+20 input userText from filename located on lineNumber
+*** Encode userText to ASCII***
+40 set userDecoded = ""
+50 set userTextLength = userText.length()
+60 set i = 0
+70 if i >= userTextLength, skip to step 200
+80 userDecoded = userDecoded + (userText[i] - 1)
+90 i = i + 1
+100 skip to step 70
+200 RETURN from subprogram encodeText with userDecoded 
+
+*** main algorithm ***
+10 output introduction: "Decodes each line of the user input's (from a file) so that each character is now the previous character in the ASCII code."
+*** initialize values ***
+11 set lineNumber = 0
+*** get name of file ***
+20 output prompt: "Please type in a name of the file (with the .txt extension) : "
+30 input filename
+40 open filename for input 
+50 open secret.txt for output
+60 get userDecoded from subprogram encodeText 
+70 lineNumber = lineNumber + 1
+*** append decoded value to secret.txt***
+80 output userDecoded to secret.txt
+90 output userDecoded 
+100 if EOF in filename skip to step 200
+110 skip to step 60
+*** Close files ***
+200 close filename
+210 close secret.txt
+210 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user inputs a filename called "input.txt" with "BC" and "CD", each on a seperate line
+Input: filename = "input.txt" 
+Output: 
+AB
+BC
+
+10 Decodes each line of the user input's (from a file) so that each character is now the previous character in the ASCII code.
+11 lineNumber = 0;
+20 Please type in a name of the file (with the .txt extension) : 
+30 filename = "input.txt" 
+40 open input.txt for input 
+50 open secret.txt for output
+60 jump to subprogram encodeText 
+20 userText = "BC"
+40 userDecoded = ""
+50 userTextLength = 2
+60 i = 0
+70 false
+80 userDecoded = "" + ("A") = "A"
+90 i = 0 + 1 = 1
+70 false
+80 userDecoded = "A" + ("B") = "AB"
+90 i = 1 + 1 = 2
+70 true
+200 RETURN from subprogram userDecoded with "AB"
+70 lineNumber = 0 + 1 = 1
+80 output "AB" to secret.txt
+90 AB
+100 false
+60 jump to subprogram encodeText 
+20 userText = "CD"
+40 userDecoded = ""
+50 userTextLength = 2
+60 i = 0
+70 false
+80 userDecoded = "" + ("B") = "B"
+90 i = 0 + 1 = 1
+70 false
+80 userDecoded = "B" + ("C") = "BC"
+90 i = 1 + 1 = 2
+70 true
+200 RETURN from subprogram userDecoded with "BC"
+70 lineNumber = 1 + 1 = 2
+80 output "BC" to secret.txt
+90 BC
+100 true
+200 close filename
+210 close secret.txt
+210 END

@@ -1,0 +1,108 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Output user's lucky number, favorite movie, age, and first letter of his or her name. 
+
+2. Requirements
+INPUT: 
+lucky
+movie
+age
+letter
+
+PROCESSING: (a list of the major parts of the problem or objective (that will become the code blocks in a program))
+1. getting user's lucky number, favorite movie, age, and first letter of his or her name. 
+2. outputing user's lucky number, favorite movie, age, and first letter of his or her name. 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+lucky
+movie
+age
+letter
+
+DATA: (name of data item, definition, data type, valid values)
+lucky = the user's lucky number (whole number)
+movie = the user's favorite movie (text)
+age = the user's age in years (decimal) (0-122)
+average = the user's first letter in his or her name (character) (has to be a capital letter from 'A' to 'Z')
+
+3. Instructions
+10. output the introduction: "Outputs your lucky number, favorite movie, age, and first letter of his or her name."
+*** getting the user's lucky number ***
+*** getting the user's favorite movie ***
+*** getting the user's age ***
+*** getting the user's first letter ***
+20. output prompt "What's your lucky number (positive or negative whole number or 0) ('EXIT' to END)? "
+30. input lucky
+31. if lucky is not 'EXIT', skip to step 35
+32. output label 'There are no lucky number, favorite movie, age, and first letter.'
+33. skip to step 200
+35. if lucky is a positive or negative whole number or 0, skip to step 40
+37. output prompt "Invalid lucky number. Please type a positive or negative whole number or 0: "
+38. skip to step 30
+40. output prompt "What's your favorite movie (just the title and should be text): "
+50. input movie
+55. if movie is text, skip to step 60 
+57. output prompt "Invalid movie. Please type text and just the title? "
+58. skip to step 50
+60. output prompt "What's your age (0-122) (decimal)?"
+70. input age
+75. if age is between 0 to 122, skip to step 80
+77. output prompt "Invalid age. Please type a decimal between 0 and 122? "
+78. skip to step 70
+80. output prompt "What's your first letter of your name (has to one letter)? "
+90. input letter
+95. if letter is a single character that is a letter, skip to step 100
+97. output prompt "Invalid letter. Please type a single letter from 'a' to 'z' "
+98. skip to step 90
+*** output the user's lucky number ***
+*** output the user's favorite movie ***
+*** output the user's age ***
+*** output the user's first letter ***
+100. output label "Your lucky number is " + lucky + ", favorite movie is " + movie + ", age is " + age + ", and first letter is " + letter
+200. END or EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:	and the expected results:
+User types in his or her lucky number, favorite movie, age, and first letter.
+Input: lucky number is 4, favorite movie is "Minions", age is 18, first letter is 'E'
+Expected results: lucky = 4, movie = "Minions", age = 18.2, letter = 'E'
+10 Outputs your lucky number, favorite movie, age, and first letter of his or her name.
+20 What's your lucky number (positive or negative whole number or 0)? 
+30 lucky = 4
+31 true
+35 true
+40 What's your favorite movie (just the title and should be text)? 
+50 movie = "Minions"
+55 true
+60 What's your age (0-122) (decimal)?
+70 age = 18.2
+75 true
+80 "What's your first letter of your name (has to a letter)? "
+90 letter = 'E'
+95 true
+100 Your lucky number is 4, favorite movie is Minions, age is 18.2, and first letter is E
+200 END
+
+Test Case #2: 
+User types invalid lucky number
+Input: lucky number is -4, favorite movie is "Minions", age is 18, first letter is 'E'
+Expected results: Invalid lucky number. Please type a positive or negative whole number or 0: 
+10 Outputs your lucky number, favorite movie, age, and first letter of his or her name.
+20 What's your lucky number (positive or negative whole number or 0)? 
+30 lucky = -1
+31 true
+35 false
+37 Invalid lucky number. Please type a positive or negative whole number or 0: 
+
+Test Case #3: 
+User types in nothing
+Input: 
+Expected Results: There are no lucky number, favorite movie, age, and first letter.
+10 Outputs your lucky number, favorite movie, age, and first letter of his or her name.
+20 What's your lucky number (positive or negative whole number or 0)? 
+30 lucky = 'EXIT'
+31 false
+32 There are no lucky number, favorite movie, age, and first letter.
+200 END

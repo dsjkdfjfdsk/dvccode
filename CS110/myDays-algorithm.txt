@@ -1,0 +1,135 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Calculate how many days old I will be by the due date of this assignment.
+
+2. Requirements
+INPUT: 
+years 
+leapYears 
+beforeDays 
+remainingDays 
+
+PROCESSING: (a list of the major parts of the problem or objective (that will become the code blocks in a program))
+1. getting age in terms of years I have lived, including my birth year and the current year
+2. getting leap years in my age.
+3. getting number of days in my birth year before I was born.
+4. getting the nmber of days remaining in the current year after the due date.
+5. calculating the age in terms of days.
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+dateOfBirth
+due
+days 
+
+DATA: (name of data item, definition, data type, valid values)
+days = number of days old I am (whole number)
+years = number of years I have lived, including my birth year and the current year (whole number) (0-122)
+dateOfBirth = the full date of my birth (string) 
+due = the due date of the assignment (string)
+beforeDays = number of days in my birth year before I was born (whole number)
+leapYears = number of years of my age that were leap years (whole number)
+remainingDays = number of days remaining in the current year after the due date. (whole number)
+
+3. Instructions
+10. output the introduction: "Calculate how many days old I will be by the due date of this assignment."
+*** gettting the age in years of the person ***
+*** gettting number of days in my birth year before I was born ***
+*** gettting number of days remaining in the current year after the due date. ***
+20. output the prompt: "Enter the number of years I have lived, including my birth year and the current year (19) (-1 to EXIT): "
+21. input years 
+22. if years is not -1, skip to step 26
+23. output label "No birthday typed in"
+24. skip to step 120
+26. if years is 19, skip to step 30
+27. ouput the prompt: "Not the right amount of years. Please reeenter the correct amount (19): "
+28. skip to instruction 20
+30. output the prompt: "Enter the number of leap years in my age (5): "
+31. input leapYears
+32. if years is 5, skip to step 40
+33. ouput the prompt: "Not the right amount of leapYears. Please reeenter correct amount (5): "
+34. skip to instruction 30
+40. output the prompt: "Enter the number of days in my birth year before I was born (168): "
+41. input beforeDays 
+42. if years is 168, skip to step 50
+43. ouput the prompt: "Not the right amount of beforeDays. Please reeenter correct amount (168): "
+44. skip to instruction 40
+50. output the prompt: "Enter the number of days remaining in the current year after the due date (192): "
+51. input remainingDays 
+52. if years is 192, skip to step 60
+53. ouput the prompt: "Not the right amount of remainingDays. Please reeenter correct amount (192): "
+54. skip to instruction 50
+*** calculate my age in terms of days ***
+60. set days = 0
+61. set days = days + 365 * years
+62. set days = days + leapYears * 366
+63. set days = days - beforeDays
+64. set days = days - remainingDays
+*** set the due date ***
+70. set due = "June 22, 2017"
+*** set my date of birth ***
+80. set dateOfBirth = "June 17, 1999"
+*** output my date of birth ***
+*** output the due date of this assignment ***
+*** output my age in days***
+90. output label "DOB: " + dateOfBirth 
+100. output label "Due: " + due 
+110. output label "Age in Days: " + days
+120. END or EXIT
+
+4. Test Cases
+Test Case#1:
+I type my real birthday: 6/17/1999
+Input: years is 19, leapYears is 5, beforeDays is 168, remainingDays is 192
+Expected results: 
+DOB: June 17, 1999
+Due: June 22, 2017
+Age in Days: 6580
+10 Calculate how many days old I will be by the due date of this assignment.
+20 Enter the number of years I have lived, including my birth year and the current year (19) (-1 to EXIT): 
+21 years = 19
+22 false
+26 true
+30 Enter the number of leap years in my age (5): 
+32 true
+31 leapYears = 5
+40 Enter the number of days in my birth year before I was born (168):
+41 beforeDays = 168 
+42 true
+50 Enter the number of days remaining in the current year after the due date (192): 
+52 true
+55 remainingDays = 192 
+60 set days = 0
+61 set days = 0 + 365 * 19 = 6935
+62 set days = 6935 + 5 = 6940
+62 set days = 6940 - 168 = 6772
+63 set days = 6772- 192 = 6580
+70 set due = "June 22, 2017"
+80 set dateOfBirth = "June 17, 1999"
+90 DOB: June 17, 1999
+100 Due: June 22, 2017
+110 Age in Days: 6580
+120 END
+
+Test Case #2: 
+I type my birthday incorrectly: 6/17/2017
+Input: years is 1, leapYears is 0, beforeDays is 168, remainingDays is 192
+Expected results: Not the right amount of years. Please reeenter the correct amount (19):
+10 Calculate how many days old I will be by the due date of this assignment.
+20 Enter the number of years I have lived, including my birth year and the current year (19) (-1 to EXIT): 
+21 years = 0
+22 true
+26 false
+27 Not the right amount of years. Please reeenter the correct amount (19):
+
+
+Test Case #3: 
+I don't type my birthday at all.
+Input: -1 to exit
+Expected Results: No birthday typed in
+10 Calculate how many days old I will be by the due date of this assignment.
+20 Enter the number of years I have lived, including my birth year and the current year (19) (-1 to EXIT): 
+22 false
+23 No birthday typed in
+120 END

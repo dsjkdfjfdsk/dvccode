@@ -1,0 +1,144 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Determines what the user wants for input and output files
+
+2. Requirements
+INPUT:
+inputFile
+outputFile
+
+PROCESSING:
+1. Get user input for input file and output file
+2. Output user choices for input and output file
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+inputFile
+outputFile
+
+DATA:
+inputFile = the user's choice for his or her input file (text)
+outputFile = the user's choice for his or her output file (text)
+continueYN = if the user wants to continue or not (text)
+
+3. Instructions
+10 output introduction: "Determines what the user wants for input and output files"
+*** Get user input for input file and change default output file to that if entered***
+40 output prompt: "Enter input filename [default: fileContainingEmails.txt]: " 
+50 input inputFile
+60 if length of inputFile is not 0, skip to step 79
+73 inputFile = "fileContainingEmails.txt"
+77 outputFile = "copyPasteMyEmails.txt"
+78 skip to step 80
+79 outputFile = inputFile 
+*** Get user input for output file ***
+80 output prompt: "Enter output filename [default: " + outputFile +"]"
+90 input outputFile
+91 if length of outputFile is not 0, skip to step 100
+92 if length of outputFile is 0 and outputFile = "fileContainingEmails.txt", skip to step 97
+93 outputFile = inputFile
+94 skip to step 100
+97 outputFile = "copyPasteMyEmails.txt"
+*** See if user wants to continue ***
+100 output prompt: "press ENTER key to continue or ANY key to exit: "
+110 input continueYN
+120 if length of continueYN is 0, skip to step 160
+150 skip to step 180
+*** Output respective files ***
+160 output label: "Input file: " + inputFile
+170 output label: "Output file: " + outputFile
+180 END
+
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user types nothing for both input and output filenames
+Input: inputFile = "", outputFile ="" , continueYN = ""
+Output: 
+Input file: fileContainingEmails.txt
+Output file: copyPasteMyEmails.txt
+10 Determines what the user wants for input and output files
+40 Enter input filename [default: fileContainingEmails.txt]: 
+50 inputFile = ""
+60 false
+73 inputFile = "fileContainingEmails.txt"
+77 outputFile = "copyPasteMyEmails.txt"
+80 Enter output filename [default: copyPasteMyEmails.txt]: 
+90 outputFile = ""
+91 false
+92 true
+97 outputFile = "copyPasteMyEmails.txt"
+100 press ENTER key to continue or Q to exit: 
+110 continueYN = ""
+120 true
+160 Input file: fileContainingEmails.txt
+170 Output file: copyPasteMyEmails.txt
+180 END
+
+Test Case #2
+The user types an input file as "x.txt" but enters nothing for output file
+Input: inputFile = "x.txt", outputFile ="" , continueYN = ""
+Output: 
+Input file: x.txt
+Output file: x.txt
+10 Determines what the user wants for input and output files
+40 Enter input filename [default: fileContainingEmails.txt]: 
+50 inputFile = "x.txt"
+60 true
+79 outputFile = "x.txt"
+80 Enter output filename [default: x.txt]: 
+91 false
+92 false
+93 outputFile = x.txt
+100 press ENTER key to continue or Q to exit: 
+110 continueYN = ""
+120 true
+160 Input file: x.txt
+170 Output file: x.txt
+180 END
+
+Test Case #3
+The user types nothing for the input file and "y.txt" for the output file
+Input: inputFile = "", outputFile ="y.txt" , continueYN = ""
+Output: 
+Input file: fileContainingEmails.txt
+Output file: y.txt
+10 Determines what the user wants for input and output files
+40 Enter input filename [default: fileContainingEmails.txt]: 
+50 inputFile = ""
+60 false
+73 inputFile = "fileContainingEmails.txt"
+77 outputFile = "copyPasteMyEmails.txt"
+80 Enter output filename [default: copyPasteMyEmails.txt]: 
+90 outputFile = "y.txt"
+91 true
+100 press ENTER key to continue or Q to exit: 
+110 continueYN = ""
+120 true
+160 Input file: fileContainingEmails.txt
+170 Output file: y.txt
+180 END
+
+Test Case #4
+The user types "x.txt" for the input file, "y.txt" for the output file
+Input: inputFile = "x.txt", outputFile ="y.txt" , continueYN = ""
+Output: 
+Input file: x.txt
+Output file: y.txt
+10 Determines what the user wants for input and output files
+40 Enter input filename [default: fileContainingEmails.txt]: 
+50 inputFile = "x.txt"
+60 true
+70 outputFile = "x.txt"
+79 outputFile = "x.txt"
+80 Enter output filename [default: x.txt]: 
+90 outputFile = "y.txt"
+91 true
+100 press ENTER key to continue or Q to exit: 
+110 continueYN = ""
+120 true
+160 Input file: x.txt
+170 Output file: y.txt
+180 END
+

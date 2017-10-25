@@ -1,0 +1,142 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Play a rock, paper, scissors game
+
+2. Requirements
+INPUT:
+userPlay
+
+PROCESSING:
+1. Get players move for playing, randomly generate a computer's choice for a move
+2. Calculate the winner and output the results and see if the user wants to play again. 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+computerPlayC
+userPlay
+computerScore
+userScore
+
+DATA:
+userPlay = user's choice of move (character) (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit)
+computerPlay = computer's choice of move (int) (0-2) (0 for rock, 1 for paper, 2 for scissors)
+computerPlayC = computer's choice of move expressed in a character (character) (R for rock, P for paper, S for scissors)
+computerScore = current score of the computer (int) (all whole numbers that are 0 or positive)
+userScore = current score of the user (int) (all whole numbers that are 0 or positive)
+continueYN = if the user wants to continue or not (char) (y or n)
+
+3. Instructions
+*** Introduces game and explains it to the user ***
+10 output introduction: "Play a rock, paper, scissors game"
+20 output instruction: "Rules of this game: rock beats scissors, paper beats rock, scissors beat paper"
+*** Set the initial values of userScore and computerScore
+26 set computerScore = 0
+27 set userScore = 0
+*** Get user's play choice ***
+30 output prompt: "What's your choice? (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit): "
+40 input userPlay
+50 if userPlay is R or r, P or p, S or s, skip to step 80
+55 if userPlay is not Q or q, skip to step 60
+56 output label: "Thanks for playing"
+57 skip to step 300
+60 output label: "Invalid choice. Please try again."
+70 skip to step 30
+*** Generate computer's choice and express it in a character***
+80 computerPlay = rand() % 3
+81 if computerPlay is 0, skip to 84
+82 if computerPlay is 1, skip to 86
+83 if computerPlay is 2, skip to 88
+84 computerPlayC = R
+85 skip to step 90
+86 computerPlayC = P
+87 skip to step 90
+88 computerPlayC = S
+89 skip to step 90
+*** Compare choices to determine winner ***
+90 if computerPlay is 0, skip to step 120
+100 if computerPlay is 1, skip to step 130
+110 if computerPlay is 2, skip to step 140
+120 if userPlay is S or s, skip to step 160
+126 if userPlay is R or r, skip to step 170
+127 if userPlay is  P or p, skip to step 180
+130 if userPlay is R or r, skip to step 160
+136 if userPlay is P or p, skip to step 170
+137 if userPlay is S or s, skip to step 180
+140 if userPlay is P or p, skip to step 160
+146 if userPlay is S or s, skip to step 170
+147 if userPlay is R or r, skip to step 180
+160 output label: "Your choice: " + userPlay + ", Computer's choice: " + computerPlayC + ", You lost."
+162 computerScore = computerScore + 1
+162 skip to step 200
+170 output label: "Your choice: " + userPlay + ", Computer's choice: " + computerPlayC + ", You tied."
+172 computerScore = computerScore + 1
+173 userScore = userScore + 1
+174 skip to step 200
+180 output label: "Your choice: " + userPlay + ", Computer's choice: " + computerPlayC + ", You won!"
+182 userScore = userScore + 1
+184 skip to step 200
+200 output label "Computer Score: " + computerScore + ", User Score: " + userScore
+210 skip to step 30
+300 END or EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user plays for 1 round and inputs "R" for rock but loses to the computer
+Input: userPlay = 'R', then userPlay = 'Q'
+Output: userPlay = 'R', computerPlay = 1, userScore = 0, computerScore = 1
+10 Play a rock, paper, scissors game
+20 Rules of this game: rock beats scissors, paper beats rock, scissors beat paper
+26 computerScore = 0
+27 userScore = 0
+30 What's your choice? (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit): 
+40 userPlay = 'R'
+50 true
+80 computerPlay = rand() % 3 = 1
+81 false
+82 true
+83 if computerPlay is 2, skip to 86
+86 computerPlayC = P
+90 false
+100 true
+130 true
+160 Your choice: R, Computer's choice: P, You lost.
+162 computerScore = 0 + 1 = 1
+200 Computer Score: 1, User Score: 0
+30 "What's your choice? (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit): 
+40 userPlay = 'Q'
+50 false
+55 false
+56 Thanks for playing!
+300 END
+
+Test Case #2:
+The user plays for 1 round and enters invalidly "k" for their play
+Input: userPlay = "k"
+Output: Invalid choice. Please try again.
+10 Play a rock, paper, scissors game
+20 Rules of this game: rock beats scissors, paper beats rock, scissors beat paper
+25 Computer plays 0 = Rock, 1 = Paper, 2 = Scissors
+26 computerScore = 0
+27 userScore = 0
+30 What's your choice? (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit): 
+40 userPlay = "k"
+50 false
+55 true
+60 Invalid choice. Please try again.
+30 What's your choice? (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit): 
+
+Test Case #3:
+The user quits immedietly 
+Input: userPlay = "q"
+Output: Thanks for playing!
+10 Play a rock, paper, scissors game
+20 Rules of this game: rock beats scissors, paper beats rock, scissors beat paper
+26 computerScore = 0
+27 userScore = 0
+30 What's your choice? (R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit): 
+40 userPlay = q
+50 false
+55 false
+56 Thanks for playing
+57 END

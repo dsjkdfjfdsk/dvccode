@@ -1,0 +1,121 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Calculates the range possible with the remaining fuel given the capacity in gallons of the fuel tank and the miles/gallon
+
+2. Requirements
+INPUT: 
+gallons
+tank 
+miles
+
+PROCESSING: (a list of the major parts of the problem or objective (that will become the code blocks in a program))
+1. getting user's gallons, tank, and miles
+2. calculating miles/gallon and determine range possible
+3. outputing user's lucky number, favorite movie, age, and first letter of his or her name. 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+range
+
+DATA: (name of data item, definition, data type, valid values)
+gallons = number of gallons used on trip (0 or positive) (whole number) 
+tank = capacity of the fuel tank in gallons (positive) (whole number) 
+miles = miles traveled on trip in miles (0 or positive) (whole number) 
+range = range possible with the remaining fuel in miles (0 or positive) (decimal) 
+mpg = miles per gallon (0 or positive) (decimal) 
+leftInTank = how many gallons left in the tank (0 or positive) (whole number)
+
+3. Instructions
+10 output the introduction: "Calculates the range possible with the remaining fuel"
+*** getting the user's gallons ***
+*** getting the user's tank ***
+*** getting the user's miles ***
+20 output prompt: "What's the capacity of your fuel tank (whole number greater or equal to 0) (-9999 to END)? "
+30 input tank
+31 if tank is -9999, skip to 200
+32 if tank is a positive whole number, skip to step 40
+33 output prompt: "Invalid tank. Please type a positive whole number greater than 0: "
+34 skip to step 30
+40 output prompt "How many gallons have you used (whole number greater or equal to 0) (-9999 to END)? "
+50 input gallons 
+51 if gallons is -9999, skip to 200
+52 if gallons is less than or equal to the tank, skip to step 55
+53 output label: "Gallons you used must be less than or equal to the tank capacity"
+54 skip to step 40
+55 if gallons is a positive whole number or 0, skip to step 60
+56 output prompt: "Invalid gallons. Please type a positive whole number greater or equal to 0: "
+57 skip to step 50
+60 output prompt: "How many miles have you travelled (whole number greater or equal to 0) (-9999 to END)? "
+70 input miles 
+71 if miles is -9999, skip to 200
+75 if miles is a positive whole number or 0, skip to step 90
+77 output prompt: "Invalid miles. Please type a positive whole number greater or equal to 0: "
+78 skip to step 70
+*** Calucations ***
+90 mpg = miles / gallons
+100 leftInTank = gallons % tank
+110 range = leftInTank * mpg
+*** Output Results ***
+120 output label: "You can travel " + range + " miles with the fuel you have left"
+200 END or EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:	and the expected results:
+A person travelled 20 miles, used up 10 gallons of gas, tank has 5 gallons capacity
+Input: miles = 20, gallons = 10, tank = 50
+Output: You can travel 80 miles with the fuel you have left
+10 Calculates the range possible with the remaining fuel
+20 What's the capacity of your fuel tank (whole number greater or equal to 0) (-9999 to END)?
+30 tank = 50
+31 false
+32 true
+40 How many gallons have you used (whole number greater or equal to 0) (-9999 to END)? 
+50 gallons = 10
+51 false
+55 true
+60 How many miles have you travelled (whole number greater or equal to 0) (-9999 to END)?
+70 miles = 20
+71 false
+75 true
+90 mpg = 20 / 10 = 2.0
+100 leftInTank = 50 - 10 = 40
+110 range = 40 * 2.0 = 80.0
+120 You can travel 80 miles with the fuel you have left
+200 END
+
+Test Case#2
+The user enters -20 for the fuel tank capacity
+Input: tank = -20
+Output: Invalid tank. Please type a positive whole number greater than 0: 
+10 Calculates the range possible with the remaining fuel
+20 What's the capacity of your fuel tank (whole number greater or equal to 0) (-9999 to END)? 
+30 tank = -20
+31 false
+32 false
+33 Invalid tank. Please type a positive whole number greater than 0: 
+
+Test Case#3
+The user enters 20 for the fuel tank capacity, and 50 for the gallons
+Input: tank = 20, gallons = 50
+Output: Gallons you used must be less than or equal to the tank capacity
+10 Calculates the range possible with the remaining fuel
+20 What's the capacity of your fuel tank (whole number greater or equal to 0) (-9999 to END)?
+30 tank = 20
+31 false
+32 true
+40 How many gallons have you used (whole number greater or equal to 0) (-9999 to END)? 
+50 gallons = 50
+51 false
+52 true
+53 Gallons you used must be less than or equal to the tank capacity
+
+Test Case#4: 
+The user exits immedietly
+Input: tank = -9999
+Output: 
+10 Calculates the range possible with the remaining fuel
+20 What's the capacity of your fuel tank (whole number greater or equal to 0) (-9999 to END)?
+30 tank = -9999
+31 true
+200 END

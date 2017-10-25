@@ -1,0 +1,136 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: creates a 4 function calculator 
+
+2. Requirements
+INPUT:
+first
+second
+operator
+
+PROCESSING:
+1. Get input from the user (first, second, operator)
+2. Calculate the result using these inputs
+
+OUTPUT:
+result
+
+DATA:
+first = the first number (decimal) (all numbers)
+second = the second number (decimal) (all numbers)
+operator = the operator (whole number) (1= addition  2= subtraction  3= multiplication  4= division)
+result = the result of using the operator with the first and second number (decimal) (all numbers)
+nextCalc = the result of whether the user wants to do another operation (character) (either Y or N)
+
+3. Instructions
+10 output the introduction: "Creates a 4 function calculator"
+*** gettting the first number, second number, and operator ***
+20 output the prompt: "Please enter first number: "
+30 input first
+40 output the prompt: "Please enter second number: "
+50 input second
+60 output the prompt: "Please enter operator [1= addition  2= subtraction  3= multiplcation  4= division]: "
+70 input operator
+80 if operator is 1, 2, 3, or 4, skip to step 110
+90 output label "Invalid operator. Please type 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division"
+100 skip to step 60
+*** do calculation with the operator and the two numbers
+110 if the operator is 4, skip to step 170 
+120 if the operator is 3, skip to step 160
+130 if the operator is 2, skip to step 150
+140 result = first + second
+145 skip to step 180
+150 result = first - second
+155 skip to step 190
+160 result = first * second
+165 skip to step 200
+170 result = first / second
+175 skip to step 210
+**  output result ***
+180 output label: first + " + " + second + " = " + result
+185 skip to step 220
+190 output label: first + " - " + second + " = " + result
+195 skip to step 220
+200 output label: first + " * " + second + " = " + result
+205 skip to step 220
+210 output label: first + " / " + second + " = " + result
+215 skip to step 220
+** see if they want to do another operation **
+220 output prompt: "Another calculation [Y=yes or N=no]: "
+230 input nextCalc
+240 if nextCalc is 'Y' skip to step 20
+250 if nextCalc is 'N' skip to step 300
+260 output label: "Couldn't understand you! Please type Y for yes or N for no if you want to do another calculation."
+270 skip to step 220
+300 EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user wants to evaluate 2 * 5 and 3 + 5
+Input: first = 2, second = 5, operator = 3 , nextCalc = 'Y' then first = 3, second = 5, operator = 1, nextCalc= 'N'
+Output: 2 * 5 = 10 , 3 + 5 = 8
+10 Creates a 4 function calculator
+20 Please enter first number:
+30 first = 2
+40 Please enter second number: 
+50 second = 5
+60 Please enter operator [1= addition  2= subtraction  3= multiplcation  4= division]: 
+70 operator = 3
+80 true
+110 false
+120 true
+160 result = 2 * 5 = 10
+200 2 * 5 = 10
+220 Another calculation [Y=yes or N=no]: 
+230 nextCalc = 'Y'
+240 true
+20 Please enter first number:
+30 first = 3
+40 Please enter second number: 
+50 second = 5
+60 Please enter operator [1= addition  2= subtraction  3= multiplcation  4= division]: 
+70 operator = 1
+80 true
+110 false
+120 false
+130 false
+140 result = 3 + 5 = 8
+220 Another calculation [Y=yes or N=no]:
+230 nextCalc = 'N'
+300 EXIT
+
+Test Case #2
+I accidentally type in 5 for operator while trying to add 5.2 and 7.4
+Input: first = 5.2, second = 7.4, operator = 5
+Output: Invalid operator. Please type 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+10 Creates a 4 function calculator
+20 Please enter first number:
+30 first = 5.2
+40 Please enter second number: 
+50 second = 7,4
+60 Please enter operator [1= addition  2= subtraction  3= multiplcation  4= division]: 
+70 operator = 5
+80 false
+90 Invalid operator. Please type 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+
+Test Case #3
+I type in 'a' for the Another calculation question.
+Input: first = -4.2, second = 33 , operator = 3
+Output: Couldn't understand you! Please type Y for yes or N for no if you want to do another calculation.
+10 Creates a 4 function calculator
+20 Please enter first number:
+30 first = -4.2
+40 Please enter second number: 
+50 second = 33
+60 Please enter operator [1= addition  2= subtraction  3= multiplcation  4= division]: 
+70 operator = 3
+80 true
+110 false
+120 true
+160 result = -4.2 * 33 = -138.6
+200 -4.2 * 33 = -138.6
+220 Another calculation [Y=yes or N=no]: 
+230 nextCalc = 'a'
+240 false
+260 Couldn't understand you! Please type Y for yes or N for no if you want to do another calculation.

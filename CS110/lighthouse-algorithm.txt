@@ -1,0 +1,74 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Determines how far away a boat can see a lighthouse at sea. 
+
+2. Requirements
+INPUT: 
+height
+
+PROCESSING: (a list of the major parts of the problem or objective (that will become the code blocks in a program))
+1. getting lighthouse's height (in feet) from user. 
+2. calculate the distance in miles.
+3. output the distance in miles
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+distance
+
+DATA: (name of data item, definition, data type, valid values)
+height = the lighthouse's height (in feet) (decimal) (positive)
+distance = the distance of how far away a boat can see the lighthouse (in miles) (whole number)
+
+3. Instructions
+10. output the introduction: "Determines how far away a boat can see a lighthouse at sea."
+*** getting lighthouse's height (in feet) from user. ***
+20. output prompt "What's the lighthouse height in feet (decimal) (positive) ('EXIT' to END)? "
+30. input height
+31. if height is not 'EXIT', skip to step 35
+32. output label 'There is no lighthouse height inputted'
+33. skip to step 200
+35. if height is a deciml and positive, skip to step 50
+37. output prompt "Invalid height. Please type a positive decimal number: "
+38. skip to step 30
+*** calculate the distance in miles ***
+50. distance = sqrt(.894427191 * height)
+*** output distance ***
+100. output label "A " + height + " foot tall lighthouse can be seen from " + distance + " miles away"
+200. END or EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:	and the expected results:
+User types in the height in feet
+Input: height is 100.001
+Expected results: height = 100.001, distance = 9
+10 Determines how far away a boat can see a lighthouse at sea.
+20 What's the lighthouse height in feet (decimal) (positive) ('EXIT' to END)?
+30 height = 100.001
+31 true
+35 true
+50 distance = sqrt(.894427191 * 100.001) = 9
+100 A 100.001 foot tall lighthouse can be seen from " + 9 + " miles away"
+200 END
+
+Test Case #2: 
+User types invalid height
+Input: height is -10
+Expected results: Invalid height. Please type a positive decimal number:
+10 Determines how far away a boat can see a lighthouse at sea.
+20 What's the lighthouse height in feet (decimal) (positive) ('EXIT' to END)?
+30 height = -10
+31 true
+35 false
+37 Invalid height. Please type a positive decimal number: 
+
+Test Case #3: 
+User types in nothing
+Input: 
+Expected Results: There is no lighthouse height inputted
+10 Determines how far away a boat can see a lighthouse at sea.
+20 What's the lighthouse height in feet (decimal) (positive) ('EXIT' to END)?
+30 height = EXIT
+31 true
+32 There is no lighthouse height inputted
+200 END

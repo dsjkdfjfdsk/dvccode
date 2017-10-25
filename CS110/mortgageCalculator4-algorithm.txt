@@ -1,0 +1,133 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Collects all the mortgage data in a single item
+
+2. Requirements
+INPUT:
+borrowed
+interest
+payback
+password
+
+PROCESSING:
+1. Get mortgage data from file
+2. Calculate mortgage and put that into a file as well as input it
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+
+DATA:
+mortgage.borrowed = amount borrowed (whole number) (positive)
+mortgage.interest = the monthly interest rate (decimal) (positive)
+mortgage.payback = the number of monthly payments in the payback period (whole number) (positive)
+userPassword = what the user typed in for the password (text)
+password = password to mortgage calculator (text)
+choices = number of password choices done(whole number)
+mortgage.payment = monthly payment (decimal)
+monthlyInterest = interest per month (decimal)
+monthlyPayback  = payment period (whole number)
+
+3. Instructions
+10 output intro: "Collects all the mortgage data in a single item"
+*** Initialize values ***
+19 create object mortgage
+20 set mortgage.choices = 1
+25 set password = "adf"
+26 set mortgage.payback = 30
+***Gets password***
+30 output prompt: "Enter the password: "
+40 input userPassword
+50 if userPassword == password, skip to step 100
+60 choices = choices + 1
+70 if choices > 3, skip to step 90
+80 skip to step 30
+90 output label: "No correct passowords. Your three guesses are up."
+95 skip to step 400
+*** Get user input from file***
+100 output prompt: "What's the input file? "
+110 input filename
+120 open file called filename
+130 get mortgage.borrowed from line 1 of filename
+140 if mortgage.borrowed > 0, skip to step 150
+142 output label: "Invalid borrowed value. Please try again"
+143 skip to step 100
+150 get mortgage.borrowed from line 2 of filenmae
+170 if mortgage.interest > 0, skip to step 200
+180 output label: "Invalid borrowed value. Please try again"
+190 skip to step 150
+*** Calculate payment ***
+200 monthlyInterest = mortgage.interest / 12000
+210 monthlyPayback = mortgage.payback * 12
+220 payment = (mortgage.borrowed * (1+ monthlyInterest)^monthlyPayback  * monthlyInterest) / ((1 + monthlyInterest)^monthlyPayback-1)
+*** Output results ***
+230 output label: "Amount borrowed: $" + mortgage.borrowed
+240 output label: "Annual interest rate: " + mortgage.interest + %
+250 output label: "Payback period: " + mortgage.payback + " years"
+255 format mortgage.payment to 2 decimal places
+260 output label: "Monthly payment: $" + mortgage.payment
+*** Output it to a file***
+270 open mortgage.txt
+280 output mortgage.borrowed to line 1 in mortgage.txt
+300 output mortgage.interest to line 2 in mortgage.txt
+310 output mortgage.payback to line 2 in mortgage.txt
+320 output mortgage.payment to line 4 in mortgage.txt
+330 close mortgage.txt
+400 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user inputs 270000 as the amount borrowed and 5.125% as the annual rate
+Input: filename = "text.txt" userPassword = "adf", mortgage.borrowed = 270000, mortgage.interest = 5.125
+Output:
+Amount borrowed: $270000
+Annual interest rate: 5.125%
+Payback period: 30 Years
+Monthly payment: $1470.11
+10 Collects all the mortgage data in a single item
+19 object mortgage created
+20 mortgage.choices = 1
+25 password = "adf"
+30 Enter the password: 
+40 userPassword ="adf"
+50 true
+100 What's the input file? 
+110 filename = "text.txt"
+120 opened file called filename
+130 mortgage.borrowed = 270000
+140 true
+150 mortgage.interest = 5.125
+170 true
+200 monthlyInterest = 5.125 / 12000 = .00042708333
+210 monthlyPayback = 30 * 12 = 360
+220 payment = (270000 * (1+ .00042708333)^360  * .00042708333) / ((1 + .00042708333)^360-1) = 1470.11
+230 Amount borrowed: $270000
+240 Annual interest rate: 5.125%
+250 Payback period: 30 Years
+255 mortgage.payment is formatted to 2 decimal places
+260 Monthly payment: $1470.11
+270 open mortgage.txt
+280 outputted mortgage.borrowed to line 1 in mortgage.txt
+300 outputtted mortgage.interest to line 2 in mortgage.txt
+310 outputtted mortgage.payback to line 2 in mortgage.txt
+320 outputted mortgage.payment to line 4 in mortgage.txt
+330 close mortgage.txt
+400 END
+
+Test Case #2
+The user inputs an invalid borrow number on line 1 of the input file
+Input: userPassword = "adf", mortgage.borrowed = -10
+Output: Invalid borrowed value. Please type a positive whole number
+10 Collects all the mortgage data in a single item
+19 object mortgage created
+20 mortgage.choices = 1
+25 password = "adf"
+30 Enter the password: 
+40 userPassword ="adf"
+50 true
+100 What's the input file? 
+110 filename = "text.txt"
+120 opened file called text.txt
+130 mortgage.borrowed = -10
+140 false
+142 Invalid borrowed value. Please try again

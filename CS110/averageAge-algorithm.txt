@@ -1,0 +1,118 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Calculate the average age of everyone in the classroom. 
+
+2. Requirements
+INPUT: 
+age
+
+PROCESSING: (a list of the major parts of the problem or objective (that will become the code blocks in a program))
+1. getting each age of everyone in the room. 
+2. getting the total number of people in the room.
+3. sum the age of each person in the room.
+4. dividing the sum of the ages by the number of people in the room. 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+average
+
+DATA: (name of data item, definition, data type, valid values)
+count = number of people in the room (whole number)
+age = number of years old of each person in the room (whole number) (0-122)
+sum = total of all ages of all the people in the room (whole number)
+average = the average age of all the people in the room (decimal)
+
+3. Instructions
+10. output the introduction: "Calculate the average age of everyone in the room by COMSC-110-1021 class"
+15. set sum = 0
+16. set count = 0
+17. set average = 0
+*** gettting the age of everyone in the room ***
+*** getting the total number of people in the room ***
+*** sum all the ages of the people in the room ***
+18. If there are no people in the room, jump to step 70. 
+20. output the prompt: "What is your age? (0-122) (-1 or in case nobody in the room to exit)"
+30. input age
+31. if age is equal to -1, skip to instruction 70.
+35. if age is greater than or equal to 0 or less than or equal to 122, skip to instruction 40. 
+36. ouput the prompt: "Invalid age. Please reenter an age between 0-122: "
+37. skip to instruction 20
+40. set sum = sum + age
+50. set count = count + 1
+60. if there are uncounted people left in the room, then skip to instruction 20
+*** calculate the average age ***
+70. if count is not 0, set average = sum / count
+75. if count is 0, output label "there are no people in the room"
+76. 
+80. output label "the average age of everyone in the room is " + average
+90. END or EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:	and the expected results:
+There are 3 people in the room
+Input: ages are 21, 31, 41
+Expected results: count = 3, sum = 93, average = 93/3 = 31
+10 Calculate the average age of everyone in the room by COMSC-110-1021 class
+15 sum = 0
+16 count = 0
+17 average = 0
+18 False
+20 What is your age?
+30 age = 21
+35 False
+40 sum = 0 + 21 = 21
+50 count = 0 + 1 = 1
+60 True so skip to instruction 20
+20 What is your age?
+30 age = 31
+35 False
+40 sum = 21 + 31 = 52
+50 count = 1 + 1 = 2
+60 True so skip to instruction 20
+20 What is your age?
+30 age = 41
+35 False
+40 sum = 52 + 41 = 93
+50 count = 2 + 1 =3
+60 False
+70 average = 93 / 3 = 31
+80 The average age of everyone in the room is 31
+90 DONE
+
+Test Case #2: 
+There are 3 people in the room
+Input: ages are -1, 31, 41
+Expected results: Invalid age, try again
+10 Calculate the average age of everyone in the room by COMSC-110-1021 class
+15 sum = 0
+16 count = 0
+17 average = 0
+20 What is your age?
+30 age = -1
+35 True
+90 DONE
+
+Test Case #3: 
+There are 0 people in the room 
+Input: -1
+Expected Results: There are no people in the room
+10 Calculate the average age of everyone in the room by COMSC-110-1021 class
+15 sum = 0
+16 count = 0
+17 average = 0
+18 True
+90 DONE
+
+Test Case #4:
+There is 1 person in the room
+Input: age is 200
+Expected Results: Invalid age, try again
+10 Calculate the average age of everyone in the room by COMSC-110-1021 class
+15 sum = 0
+16 count = 0
+17 average = 0
+20 What is your age?
+30 age = 200
+35 False
+90 DONE

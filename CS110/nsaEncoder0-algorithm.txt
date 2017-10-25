@@ -1,0 +1,62 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Converts each of the user input's character to the next character in the ASCII code.
+
+2. Requirements
+INPUT:
+userText
+
+PROCESSING:
+1. Get user input for the line of text to be encoded
+2. Encode the user input by increasing each character in the text by 1 ASCII value
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+userASCII
+
+DATA:
+userText = the line entered by the user (text)
+userASCII = the user's line of text translated to the next character in the ASCII code (text)
+userTextLength = the length of the userText length (whole number)
+i = the current index of the userText that is being translated to ASCII (whole number)
+
+3. Instructions
+10 output introduction: "Converts each of the user input's character to the next character in the ASCII code."
+*** Get user input for the line of text ***
+20 output prompt: "Please type in a line of text with spaces and punctuation if applicable: "
+30 input userText
+*** Encode userText to ASCII***
+40 set userASCII = ""
+50 set userTextLength = userText.length()
+60 set i = 0
+70 if i >= userTextLength, skip to step 200
+80 userASCII = userASCII + (userText[i] + 1)
+90 i = i + 1
+100 skip to step 70
+*** Output userASCII ***
+200 output userASCII 
+210 END
+
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user types AB for the line of text
+Input: userText = "AB"
+Output: BC
+
+10 Converts each of the user input's character to the next character in the ASCII code
+20 Please type in a line of text with spaces and punctuation if applicable: 
+30 userText = "AB"
+40 userASCII = ""
+50 userTextLength = 2
+60 i = 0
+70 false
+80 userASCII = "" + ("B") = "B"
+90 i = 0 + 1 = 1
+70 false
+80 userASCII = "B" + ("C") = "BC"
+90 i = 1 + 1 = 2
+70 true
+200 BC
+210 END

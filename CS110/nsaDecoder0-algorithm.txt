@@ -1,0 +1,61 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Decodes the user line of input so that each character is converted to the previous character in the ASCII code. 
+
+2. Requirements
+INPUT:
+userText
+
+PROCESSING:
+1. Get encoded text from user 
+2. Decode the encoded text by decreasing each character in the text by 1 ASCII code. 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+userDecoded
+
+DATA:
+userText = the user line of text that is inputted (text)
+userDecoded = the user line of text decoded so that each char is converted to the previous char (text)
+userTextLength = the length of the userText length (whole number)
+i = the current index of the userText that is being translated to ASCII (whole number)
+
+3. Instructions
+10 output introduction: "Decodes the user line of input so that each character is converted to the previous character in the ASCII code."
+*** Get user input for the line of text ***
+20 output prompt: "Please type in an encoded line of text with spaces and punctuation (if applicable): "
+30 input userText
+*** Decodes userText to ASCII***
+40 set userDecoded = ""
+50 set userTextLength = userText.length()
+60 set i = 0
+70 if i >= userTextLength, skip to step 200
+80 userDecoded = userDecoded + (userText[i] - 1)
+90 i = i + 1
+100 skip to step 70
+*** Output userDecoded ***
+200 output userDecoded 
+210 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user types BC for the line of text
+Input: userText = "BC"
+Output: AB
+
+10 Decodes the user line of input so that each character is converted to the previous character in the ASCII code.
+20 Please type in an encoded line of text with spaces and punctuation (if applicable): 
+30 userText = "BC"
+40 set userDecoded = ""
+50 set userTextLength = 2
+60 set i = 0
+70 false
+80 userDecoded = "" + ("A") = "A"
+90 i = 0 + 1 = 1
+70 false
+80 userDecoded = "A" + ("B") = "AB"
+90 i = 1 + 1 = 2
+70 true
+200 AB
+210 END

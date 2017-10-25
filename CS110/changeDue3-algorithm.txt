@@ -1,0 +1,293 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective:  calculate change due in a transaction using these U.S. bills – no cents: $1, $2, $5, $10, $20, $50, $100, $500, $1000, $5000, $10000, and $100000 bills.
+
+2. Requirements:
+--INPUT: 
+amountOwed = set amount by author
+cashPaid = set amount by author
+amountOwed is always less than cashPaid.
+cashPaid cannot be zero or negative.
+
+--PROCESSING: 
+The paid out bills should include the fewest number of bills. For example, do not include two $10 bills when you can include one $20 bill instead. 
+totalChangeDue = cashPaid - amountOwed
+changeDue = totalChangeDue
+thousand100 = changeDue / 100000
+changeDue = remainder from changeDue / 100000
+thousand10 = changeDue /10000
+changeDue = remainder from changeDue / 10000
+thousand5 = changeDue / 5000
+changeDue = remainder from changeDue / 5000
+thousand = changeDue / 1000
+changeDue = remainder from changeDue / 1000
+hundred5 = changeDue / 500
+changeDue = remainder from changeDue / 500
+hundred = changeDue /100
+changeDue = remainder from changeDue / 100
+fifty = changeDue / 50
+changeDue = remainder from changeDue / 50
+twenty = changeDue / 20
+changeDue = remainder from changeDue / 20
+ten = changeDue / 10
+changeDue = remainder from changeDue / 10
+five = changeDue / 5
+changeDue = remainder from changeDue / 5
+two = changeDue / 2
+changeDue = remainder from changeDue / 2
+one = changeDue
+
+--OUTPUT:
+objective
+author 
+user instructions: "set the amount owed and the cash paid amounts to calculate change due in all specified U.S. bills."
+label1: "amount owed: " 
+amountOwed
+label2: "amount cash paid: "
+cashPaid
+label3: "Change due: "
+totalChangeDue
+label4: "Change paid out in: "
+label5: "this many $100,000 bills: "
+thousand100
+label6: "this many $10,000 bills: "
+thousand10
+label7: "this many $5,000 bills: "
+thousand5
+label8: "this many $1,000 bills: "
+thousand
+label9: "this many $500 bills: "
+hundred5
+label10: "this many $100 bills: "
+hundred
+label11: "this many $50 bills: "
+fifty
+label12: "this many $20 bills: "
+twenty
+label13: "this many $10 bills: "
+ten
+label14: "this many $5 bills: "
+five
+label15: "this many $2 bills: "
+two
+label16: "this many $1 bills: "
+one
+
+--DATA:
+amountOwed = amount owed (integer)
+cashPaid = amount tendered to pay for the amount owed (integer)
+totalChangeDue = the difference between amountOwed and cashPaid (integer)
+changeDue = change due for each value of bills (integer)
+thousand100 = number of $100000 bills (integer)
+thousand10 = number of $10000 bills (integer)
+thousand5 = number of $5000 bills (integer)
+thousand = number of $1000 bills (integer)
+hundred5 = number of $500 bills (integer)
+hundred = number of $100 bills (integer)
+fifty = number of $50 bills (integer)
+twenty = number of $20 bills (integer)
+ten = number of $10 bills (integer)
+five = number of $5 bills (integer)
+two = number of $2 bills (integer)
+one = number of $1 bills (integer)
+
+
+3. Algorithm Instructions
+5 output instructions: "I will pause until you hit the enter key to check that the file change.txt has amount owed on line 1 and cash paid on line 2."
+10 output the introduction: "This calculates the change due in a transaction using these U.S. bills – no cents: $1, $2, $5, $10, $20, $50, $100, $500, $1000, $5000, $10000, and $100000 bills."
+11 set totalChangeDue = 0
+12 set cashPaid = 0
+13 set changeDue = 0
+14 set thousand100 = 0
+15 set thousand10 = 0
+16 set thousand5 = 0
+17 set thousand = 0
+18 set hundred5 = 0
+19 set hundred = 0
+20 set fifty = 0
+21 set twenty = 0
+22 set ten = 0
+23 set five = 0
+24 set two = 0
+25 set one = 0
+*** gettting the amount owed set by author from change.txt***
+*** getting the cash paid set by author from change.txt***
+26 open change.txt
+27 input amountOwed from line 1 of change.txt
+28 if amountOwed is not -1, skip to step 40
+29 output label "No amount typed in"
+30 skip to step 200
+40 if amountOwed is positive, skip to step 50
+41 output label: "Amount owed is invalid. Please type again (must be less than cashPaid):"
+42 skip to step 26
+50 input cashPaid from line 2 of change.txt
+60 if cashPaid is positive skip to step 150
+65 output label: "Cash paid is invalid. Please type again (must be 0 or positive): "
+66 skip to step 26
+*** process the cash ***
+*** The paid out bills should include the fewest number of bills ***
+150 set totalChangeDue = cashPaid - amountOwed
+151 set changeDue = totalChangeDue
+152 set thousand100 = changeDue / 100000
+153 set changeDue = remainder from changeDue / 100000
+154 set thousand10 = changeDue /10000
+155 set changeDue = remainder from changeDue / 10000
+156 set thousand5 = changeDue / 5000
+157 set changeDue = remainder from changeDue / 5000
+158 set thousand = changeDue / 1000
+159 set changeDue = remainder from changeDue / 1000
+160 set hundred5 = changeDue / 500
+161 set changeDue = remainder from changeDue / 500
+162 set hundred = changeDue /100
+163 set changeDue = remainder from changeDue / 100
+164 set fifty = changeDue / 50
+165 set changeDue = remainder from changeDue / 50
+166 set twenty = changeDue / 20
+167 set changeDue = remainder from changeDue / 20
+168 set ten = changeDue / 10
+169 set changeDue = remainder from changeDue / 10
+170 set five = changeDue / 5
+171 set changeDue = remainder from changeDue / 5
+172 set two = changeDue / 2
+173 set changeDue = remainder from changeDue / 2
+174 set one = changeDue
+*** output ***
+180 output label "Cash payment amount: " + amountOwed 
+181 output label "Tendered amount: " + cashPaid 
+182 output label "Change due: " + totalChangeDue 
+183 output label "Change paid out in: "
+184 output label "this many $100,000 bills: " + thousand100
+185 output label "this many $10,000 bills: " + thousand10
+186 output label "this many $5,000 bills: " + thousand5
+187 output label "this many $1,000 bills: " + thousand
+188 output label "this many $500 bills: " + hundred5
+189 output label "this many $100 bills: " + hundred
+190 output label "this many $50 bills: " + fifty
+191 output label "this many $20 bills: " + twenty
+192 output label "this many $10 bills: " + ten
+193 output label "this many $5 bills: " + five
+194 output label "this many $2 bills: " + two
+195 output label "this many $1 bills: "+ one
+200 END
+
+4. Test cases
+Test Case #1: 
+Input: amountOwed is $146 cashPaid is $200
+Expected results: amountOwed = 146, cashPaid = 200, totalChangeDue = 54, changeDue = 0, thousand100 = 0, thousand10 = 0, thousand5 = 0, thousand = 0, hundred5 = 0, hundred = 0, fifty = 1, twenty = 0, ten = 0, five = 0, two = 2, one = 0
+5 I will pause until you hit the enter key to check that the file change.txt has amount owed on line 1 and cash paid on line 2.
+10 This calculates the change due in a transaction using these U.S. bills – no cents: $1, $2, $5, $10, $20, $50, $100, $500, $1000, $5000, $10000, and $100000 bills.
+11 totalChangeDue = 0
+12 cashPaid = 0
+13 changeDue = 0
+14 thousand100 = 0
+15 thousand10 = 0
+16 thousand5 = 0
+17 thousand = 0
+18 hundred5 = 0
+19 hundred = 0
+20 fifty = 0
+21 twenty = 0
+22 ten = 0
+23 five = 0
+24 two = 0
+25 one = 0
+26 open change.txt 
+27 amountOwed = 146
+28 true
+40 true
+50 cashPaid = 200 
+150 totalChangeDue = 200 - 146 = 54
+151 changeDue = 54 
+152 thousand100 = 54 / 100000 = 0
+153 changeDue = 54 % 100000 = 54 
+154 thousand10 = 54 /10000 = 0
+155 changeDue = 54 % 10000 = 54 
+156 thousand5 = 54 / 5000 = 0
+157 changeDue = 54 % 5000 = 54 
+158 thousand = 54 / 1000 = 0
+159 changeDue = 54 % 1000 = 54 
+160 hundred5 = 54 / 500 = 0
+161 changeDue = 54 % 500 = 54 
+162 hundred = 54 /100 = 0
+163 changeDue = 54 % 100 = 54 
+164 fifty = 54 / 50 = 1
+165 changeDue = 54 % 50 = 4
+166 twenty = 4 / 20 = 0
+167 changeDue = 4 % 20 = 4
+168 ten = 4 / 10 = 0
+169 changeDue = 4 % 10 = 4
+170 five = 4 / 5 = 0
+171 changeDue = 4 % 5 = 4
+172 two = 4 / 2 = 2
+173 changeDue = 4 % 2 = 0
+174 one = 0
+*** output ***
+180 Cash payment amount: 146
+181 Tendered amount: 200
+182 Change due: 54
+183 Change paid out in: 
+184 this many $100,000 bills: 0
+185 this many $10,000 bills: 0
+186 this many $5,000 bills: 0
+187 this many $1,000 bills: 0
+188 this many $500 bills: 0
+189 this many $100 bills: 0
+190 this many $50 bills: 1
+191 this many $20 bills: 0
+192 this many $10 bills: 0
+193 this many $5 bills: 0
+194 this many $2 bills: 2
+195 this many $1 bills: 0
+200 END 
+
+Test Case #2: 
+Input: nothing
+Expected results: No amount typed in
+10 This calculates the change due in a transaction using these U.S. bills – no cents: $1, $2, $5, $10, $20, $50, $100, $500, $1000, $5000, $10000, and $100000 bills.
+11 totalChangeDue = 0
+12 cashPaid = 0
+13 changeDue = 0
+14 thousand100 = 0
+15 thousand10 = 0
+16 thousand5 = 0
+17 thousand = 0
+18 hundred5 = 0
+19 hundred = 0
+20 fifty = 0
+21 twenty = 0
+22 ten = 0
+23 five = 0
+24 two = 0
+25 one = 0
+26 open change.txt
+27 amountOwed = -1
+28 false
+29 No amount typed in
+30 skip to step 200
+200 END
+
+Test Case #3:
+Input: amountOwed = -146, cashPaid = 200
+Expected results: Cash paid is invalid. Please type again (must be positive):
+10 This calculates the change due in a transaction using these U.S. bills – no cents: $1, $2, $5, $10, $20, $50, $100, $500, $1000, $5000, $10000, and $100000 bills.
+11 totalChangeDue = 0
+12 cashPaid = 0
+13 changeDue = 0
+14 thousand100 = 0
+15 thousand10 = 0
+16 thousand5 = 0
+17 thousand = 0
+18 hundred5 = 0
+19 hundred = 0
+20 fifty = 0
+21 twenty = 0
+22 ten = 0
+23 five = 0
+24 two = 0
+25 one = 0
+26 open change.txt
+27 amountOwed = -146
+28 true
+40 false
+41 Amount owed is invalid. Please type again (must be less than cashPaid):

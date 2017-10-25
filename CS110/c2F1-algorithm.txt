@@ -1,0 +1,82 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective:  Converts celsius temperature to farenheit temperature
+
+2. Requirements
+INPUT:
+
+
+PROCESSING:
+
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+
+DATA:
+temperatureC = the current temperature in Celsius (decimal) (-273.15 to 58.0)
+temperatureF = the current temperature in Farenheit (decimal)
+currentLineNumber = the line number where we are reading (whole number)
+
+
+3. Instructions
+10 output introduction: "Converts celsius temperature to farenheit temperature"
+*** set currentLineNumber ***
+15 set currentLineNumber = 0
+*** Read file input ***
+20 opens temps.txt
+30 input temperatureC from line currentLineNumber 
+40 if temperatureC is -999, skip to step 80
+45 if temperatureC is between -273.15 and 58.0, skip to step 50
+46 output label: "Fix the temperature " + temperatureC + " to a valid Celsius temperature in the file (-273.15 to 58.0)."
+47 skip to step 20
+50 currentLineNumber = currentLineNumber + 1
+*** calculations ***
+65 temperatureF = 9 / 5 * temperatureC + 32
+*** output the consersion ***
+70 output label: temperatureC + " Celcius equals " + temperatureF + " Farenheit"
+71 if file is at the end, skip to step 80
+75 skip to step 30
+80 close file
+200 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+User inputs 5 degrees Celsius and -999 for the last line for only 1 line of temps.txt
+Input: temperatureC = 5
+Output: temperatureC = 5, temperatureF = 41
+10 Converts celsius temperature to farenheit temperature
+15 currentLineNumber = 0
+20 opens temps.txt
+30 temperatureC = 5
+40 false
+45 true
+50 currentLineNumber = currentLineNumber + 1
+65 temperatureF = 9 / 5 * 5 + 32 = 41
+70 5 Celcius equals 41 + Farenheit
+71 true
+200 END
+
+Test Case #2:
+User has only -999 in temps.txt
+Input: temperatureC = -999
+Output: END
+10 Converts celsius temperature to farenheit temperature
+15 currentLineNumber = 0
+20 opens temps.txt
+30 temperatureC = 0
+40 true
+200 END
+
+Test Case #3
+User has -400 for the first temperature in teps.txt
+Input: temperatureC = -400 
+Output: Fix the temperature -400 to a valid Celsius temperature in the file (-273.15 to 58.0).
+10 Converts celsius temperature to farenheit temperature
+15 currentLineNumber = 0
+20 opens temps.txt
+30 input temperatureC from line currentLineNumber 
+40 false
+45 false
+46 Fix the temperature -400 to a valid Celsius temperature in the file (-273.15 to 58.0).
+

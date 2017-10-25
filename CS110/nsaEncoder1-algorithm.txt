@@ -1,0 +1,112 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Converts each line of the user input's (from a file) so that each character is now the next character in the ASCII code.
+
+2. Requirements
+INPUT:
+filename
+
+PROCESSING:
+1. Get user input for the file to be encoded
+2. Encode each line of the file by increasing each character in the text by 1 ASCII value
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+userASCII
+
+DATA:
+userText = the line currently being encoded (text)
+userASCII = the user's line of text translated to the next character in the ASCII code (text)
+userTextLength = the length of the userText length (whole number)
+i = the current index of the userText that is being translated to ASCII (whole number)
+filename = the file name that the userTexts are located (text)
+lineNumber = current line number that is being encoded (whole number) 
+
+3. Instructions
+*** subprogram encodeText ***
+*** Get user input for the line of text ***
+20 input userText from filename located on lineNumber
+*** Encode userText to ASCII***
+40 set userASCII = ""
+50 set userTextLength = userText.length()
+60 set i = 0
+70 if i >= userTextLength, skip to step 200
+80 userASCII = userASCII + (userText[i] + 1)
+90 i = i + 1
+100 skip to step 70
+200 RETURN from subprogram encodeText with userASCII
+
+*** main algorithm ***
+10 output introduction: "Converts each line of the user input's (from a file) so that each character is now the next character in the ASCII code."
+*** initialize values ***
+11 set lineNumber = 0
+*** get name of file ***
+20 output prompt: "Please type in a name of the file (with the .txt extension) : "
+30 input filename
+40 open filename for input 
+50 open secret.txt for output
+60 get userASCII from subprogram encodeText 
+70 lineNumber = lineNumber + 1
+*** append encoded value to secret.txt***
+80 output userASCII to secret.txt
+90 output userASCII
+100 if EOF in filename skip to step 200
+110 skip to step 60
+*** Close files ***
+200 close filename
+210 close secret.txt
+210 END
+
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user inputs a filename called "input.txt" with "AB" and "BC", each on a seperate line
+Input: filename = "input.txt" 
+Output: 
+BC
+CD
+
+10 Converts each line of the user input's (from a file) so that each character is now the next character in the ASCII code.
+11 lineNumber = 0;
+20 Please type in a name of the file (with the .txt extension) : 
+30 filename = "input.txt" 
+40 open input.txt for input 
+50 open secret.txt for output
+60 jump to subprogram encodeText 
+20 userText = "AB"
+40 userASCII = ""
+50 userTextLength = 2
+60 i = 0
+70 false
+80 userASCII = "" + ("B") = "B"
+90 i = 0 + 1 = 1
+70 false
+80 userASCII = "B" + ("C") = "BC"
+90 i = 1 + 1 = 2
+70 true
+200 RETURN from subprogram encodeText with "BC"
+70 lineNumber = 0 + 1 = 1
+80 output "BC" to secret.txt
+90 BC
+100 false
+60 jump to subprogram encodeText 
+20 userText = "BC"
+40 userASCII = ""
+50 userTextLength = 2
+60 i = 0
+70 false
+80 userASCII = "" + ("C") = "C"
+90 i = 0 + 1 = 1
+70 false
+80 userASCII = "C" + ("D") = "CD"
+90 i = 1 + 1 = 2
+70 true
+200 RETURN from subprogram encodeText with "CD"
+70 lineNumber = 1 + 1 = 2
+80 output "CD" to secret.txt
+90 CD
+100 true
+200 close filename
+210 close secret.txt
+210 END

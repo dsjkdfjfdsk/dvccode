@@ -1,0 +1,220 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Uses given input and output files from user to output every valid email address to console. 
+
+2. Requirements
+INPUT:
+inputFile
+outputFile
+
+PROCESSING:
+1. data
+2. introduction
+3. input filenames (input and output) using variable prompts and default filenames
+4. Open and reads input file, outputting each valid email
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+validEmail
+
+DATA:
+inputFile = the user's choice for his or her input file (text)
+outputFile = the user's choice for his or her output file (text)
+continueYN = if the user wants to continue or not (text)
+line = the line of text with the @ char (text)
+counter = the counter for reading the file (whole number)
+lengthLine = length of text line to count to (whole number)
+countofEmails = the numebr of valid emails (whole number)
+s = counter for checking valid input for the text before the @ sign (whole number)
+e = counter for checking valid input for the text after the @ sign (whole number)
+validEmail = if the email character is valid (boolean)
+hasDot = if there is a dot or not (boolean)
+
+3. Instructions
+10 output introduction: "Uses given input and output files from user to output every valid email address to console."
+20 set countofEmails = 0
+*** Get user input for input file and change default output file to that if entered***
+40 output prompt: "Enter input filename [default: fileContainingEmails.txt]: " 
+50 input inputFile
+60 if length of inputFile is not 0, skip to step 79
+73 inputFile = "fileContainingEmails.txt"
+77 outputFile = "copyPasteMyEmails.txt"
+78 skip to step 80
+79 outputFile = inputFile 
+*** Get user input for output file ***
+80 output prompt: "Enter output filename [default: " + outputFile +"]"
+90 input outputFile
+91 if length of outputFile is not 0, skip to step 100
+92 if length of outputFile is 0 and outputFile = "fileContainingEmails.txt", skip to step 97
+93 outputFile = inputFile
+94 skip to step 100
+97 outputFile = "copyPasteMyEmails.txt"
+*** Output respective files ***
+100 output label: "Input file: " + inputFile
+110 output label: "Output file: " + outputFile
+*** See if user wants to continue ***
+130 output prompt: "press ENTER key to continue or ANY key to exit: "
+140 input continueYN
+150 if length of continueYN is 0, skip to step 170
+160 skip to step 300
+*** Reads file ***
+170 open inputFile
+180 counter = 0
+181 if we are at the end of the file, skip to step 340 
+182 get current line from inputFile and put that value into line
+183 lengthline = line.length()
+185 if counter >= lengthLine, skip to step 180
+190 if line[counter] isn't @, skip to step 300
+***Check string before @ sign ***
+195 s = counter - 1 
+200 if s < 0, skip to step 250
+210 if line[s] isn't a letter (a to z or A to Z) or an underscore, minus sign, or plus sign, skip to step 250
+220 s = s - 1
+230 skip to step 200
+***Check string after @ sign ***
+250 hasDot = false
+260 e = counter + 1
+270 if e >= lengthline, skip to step 300
+280 if currentLine[e] has a '.', hasDot = true
+285 if line[e] isn't a letter (a to z or A to Z) or an underscore, minus sign, or plus sign, skip to step 300
+290 e = e + 1
+295 skip to step 270
+*** Output valid email if there is one ***
+300 counter = counter +1
+310 if s >= i or e <= counter or hasDot is false, skip to step 185
+320 output substring of currentLine from location s to e
+325 countofEmails = countofEmails + 1
+330 skip to step 185
+*** Check to see if there were no ats ***
+340 if countofEmails > 0, skip to step 400
+350 output label: "You had no emails in your file!"
+*** END ***
+400 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user types nothing for both input and output filenames. Input file has 1 line that says <e@y.com> and another line that says email@m
+Input: inputFile = "", outputFile ="" , continueYN = ""
+Output: 
+Input file: fileContainingEmails.txt
+Output file: copyPasteMyEmails.txt
+e@y.com
+
+10 Uses given input and output files from user to output every valid email address to console.
+20 countofEmails = 0
+40 Enter input filename [default: fileContainingEmails.txt]: 
+50 inputFile = "x.txt"
+60 true
+70 outputFile = "x.txt"
+79 outputFile = inputFile 
+80 Enter output filename [default: x.txt]: 
+90 outputFile = "y.txt"
+91 true
+100 Input file: x.txt
+110 Output file: y.txt
+130 press ENTER key to continue or ANY key to exit: 
+140 continueYN = ""
+150 true
+160 false
+170 open inputFile
+180 counter = 0
+181 false
+182 line = "<e@y.com>"
+183 lengthline = 7
+185 false
+190 true
+300 counter = 0 + 1 = 1
+310 true
+185 false
+190 true
+300 counter = 1 + 1 = 2
+310 true
+185 false
+190 false
+195 s = 2 - 1 = 1
+200 false
+210 false
+220 s = 1 - 1 = 0
+200 false
+210 true
+250 hasDot = false
+260 e = 2 + 1 = 3
+270 false
+280 false
+285 false
+290 e = 3 + 1 = 4
+270 false
+280 hasDot = true
+285 false
+290 e = 4 + 1 = 5
+270 false
+280 false
+285 false
+290 e = 5 + 1 = 6
+270 false
+280 false
+285 true
+300 counter = 2 + 1 = 3
+310 false
+320 e@y.com
+325 countofEmails = 0 + 1 = 1
+185 true
+180 counter = 0
+181 false
+182 line = email@m
+183 lengthline = 7
+185 false
+190 true
+300 counter = 0 + 1 = 1
+310 true
+185 false
+190 true
+300 counter = 1 + 1 = 2
+310 true
+185 false
+190 true
+300 counter = 2 + 1 = 3
+310 true
+185 false
+190 true
+300 counter = 3 + 1 = 4
+310 true
+185 false
+190 true
+300 counter = 4 + 1 = 5
+310 true
+185 false
+190 false
+195 s = 5 - 1 = 4
+200 false
+210 false
+220 s = 4 - 1 = 3
+200 false
+210 false
+220 s = 3 - 1 = 2
+200 false
+210 false
+220 s = 2 - 1 = 1
+200 false
+210 false
+220 s = 1 - 1 = 0
+200 false
+210 false
+220 s = 0 - 1 = -1
+200 false
+210 true
+250 hasDot = false
+260 e = 5 + 1 = 6
+270 false
+280 false
+285 false
+290 e = 6 + 1 = 7
+270 true
+300 counter = 5 + 1 = 6
+310 true
+185 true
+180 counter = 0
+181 true
+340 true
+400 END

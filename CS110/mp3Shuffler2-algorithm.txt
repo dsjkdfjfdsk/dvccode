@@ -1,0 +1,113 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: reads all song titles from a text file, and randomly select and output titles in a loop until the user wishes to stop
+
+2. Requirements
+INPUT:
+continueYN
+
+PROCESSING:
+1. Read file to get a list of songs (up to 200)
+2. Get user input to see if he or she wants to continue
+3. Output random song or not based on user input
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+showSong
+
+DATA:
+MAXSONGS = max amount of songs (whole number)
+continueYN = to continue getting songs or not (boolean)
+songs = list of songs (array)
+currentLine = current line of the song (string)
+nSongs = iterator for placing songs from input file into songs array (whole number)
+userAnswer = yes or no for the song (boolean)
+showSong = song to be showed (string)
+randomNumber = random index for song chosen (whole number)
+lastFiveSongs = object storing last five songs (list)
+
+3. Instructions
+10 output introduction: "reads all song titles from a text file, and randomly select and output titles in a loop until the user wishes to stop"
+*** Reads file and stores it into the songs array ***
+15 set nSongs = 0
+16 set MAXSONGS = 200
+17 create lastFiveSongs
+20 open "songs.txt"
+30 if it is the end of "songs.txt", skip to step 70
+40 if nSongs >= MAXSONGS, skip to step 70
+45 get string from the current line of the "songs.txt" and store it into currentLine
+50 songs[nSongs] = currentLine
+55 currentLine = currentLine + 1
+60 skip to step 30
+*** Get user input to see if they want to play a song ***
+70 output prompt: "play a song [Y/N]?: "
+80 input userAnswer
+90 if userAnswer != y or Y, skip to step 140
+100 continueYN = true
+101 add userAnswer to lastFiveSongs list
+110 generate random number between 0 and nSongs and store it into randomNumber
+120 showSong = song[randomNumber]
+125 if showSong is in lastFiveSongs list, skip to step 110
+130 output showSong
+135 skip to step 80
+140 if userAnswer n or N, skip to step 170
+150 output label: "Didn't understand you. Please type Y or N. "
+160 skip to step 70
+170 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user has three songs "abc", "bless", "love" in songs.txt and mistypes his choice but chooses one song after
+Input: userAnswer = 'b', userAnswer = 'y', userAnswer = 'y', userAnswer = 'n'
+Output:
+Didn't understand you. Please type Y or N.
+abc
+bless
+
+10 reads all song titles from a text file, and randomly select and output titles in a loop until the user wishes to stop
+15 nSongs = 0
+16 MAXSONGS = 200
+17 create lastFiveSongs
+20 open "songs.txt"
+30 false
+40 false
+45 currentLine = "abc"
+50 songs[0] = "abc"
+55 currentLine = 0 + 1 = 1
+30 false
+40 false
+45 currentLine = "bless"
+50 songs[0] = "bless"
+55 currentLine = 0 + 1 = 1
+30 true
+70 play a song [Y/N]?: 
+80 userAnswer = b
+90 true
+100 continueYN = true
+140 false
+150 Didn't understand you. Please type Y or N. 
+70 play a song [Y/N]?: 
+80 userAnswer = y
+90 false
+100 continueYN = true
+110 randomNumber = 0
+120 showSong = "abc"
+125 false
+130 abc
+70 play a song [Y/N]?: 
+80 userAnswer = y
+90 false
+100 continueYN = true
+110 randomNumber = 0
+120 showSong = "abc"
+125 true
+110 randomNumber = 1
+120 showSong = song[1]
+125 false
+130 bless
+70 play a song [Y/N]?: 
+80 userAnswer = n
+90 true
+140 true
+170 END

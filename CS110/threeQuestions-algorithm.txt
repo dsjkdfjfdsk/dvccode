@@ -1,0 +1,108 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Asks three questions tells the user if they answered them correctly
+
+2. Requirements
+INPUT:
+userAnswer 
+
+PROCESSING:
+1. Get user answers for each question
+2. Evaluate if the answer is correct and adds 1 point to the score if correct 
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+correctness
+score
+
+DATA:
+answer = correct answer to the question (whole number)
+question = the question (text)
+userAnswer = the user's input to the question (whole number)
+correctness = true or false (boolean)
+score = the total number of correct answers from user (whole number) (0 or any positive whole number)
+currentStep = the current step of the instruction (int)
+
+3. Instructions
+10 output introduction: "Asks three questions tells the user if they answered them correctly"
+***Asks three questions***
+20 set question = "How many bits in a byte?"
+30 set answer = 8
+31 set currentStep = 41
+40 jump to step 150 (subprogram) 
+41 if correctness == false, skip to step 48
+42 output label: "Correct!"
+43 score = score + 1
+44 skip to step 50
+48 output label: "Incorrect, but a better answer would be " + answer
+50 question = "How many bytes in a int?"
+60 answer = 4
+61 currentStep = 71
+70 jump to step 150 (subprogram) 
+71 if correctness == false, skip to step 78
+72 output label: "Correct!"
+73 score = score + 1
+74 skip to step 80
+78 output label: "Incorrect, but a better answer would be " + answer
+80 question = "How many bytes in a long long?"
+90 answer = 8
+91 currentStep = 101
+100 jump to step 150 (subprogram) 
+101 if correctness == false, skip to step 105
+102 output label: "Correct!"
+103 score = score + 1
+104 skip to step 150
+105 output label: "Incorrect, but a better answer would be " + answer
+110 skip to step 220
+*** Subprogram to determine if user answer is correct***
+150 output question as a prompt
+160 input userAnswer 
+170 if answer == userAnswer, skip to step 200
+180 correctness = false
+190 skip back to the previous step currentStep 
+200 correctness = true
+210 skip back to previous step currentStep
+*** Output results ***
+220 output label "That's " + score + " correct out of 3 questions asked";
+310 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+The user types in 8, 4, 2 as their answers
+Input: userAnswer = 8, userAnswer = 4, userAnswer = 2
+Output: That's 2 correct out of 3 questions asked
+10 Asks three questions tells the user if they answered them correctly
+20 question = "How many bits in a byte?"
+30 answer = 8
+31 currentStep = 41
+150 How many bits in a byte?
+160 userAnswer = 8
+170 true
+200 correctness = true
+210 skip back to previous step 41
+41 false
+42 Correct!
+43 score = 0 + 1 = 1
+50 question = "How many bytes in a int?"
+60 answer = 4
+61 currentStep = 71
+150 How many bytes in a int?
+160 userAnswer = 4
+170 true
+200 correctness = true
+71 false
+72 Correct!
+73 score = 1 + 1 = 2
+80 question = "How many bytes in a long long?"
+90 answer = 8
+91 currentStep = 101
+150 How many bytes in a long long?
+160 userAnswer = 2
+170 true
+180 correctness = false
+190 skip back to the previous step 101
+101 true
+105 Incorrect, but a better answer would be 8
+220 That's 2 correct out of 3 questions asked
+310 END

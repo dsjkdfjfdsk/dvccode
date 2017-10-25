@@ -1,0 +1,120 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: read names in a text file, sort them alphabetically, and output them to the screen
+
+2. Requirements
+INPUT:
+file
+
+PROCESSING:
+1. Get filename
+2. Store each line into names array (up to 5 names), skipping blank lines and exact duplicates
+3. Sort the names array
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+names
+
+DATA:
+file = the name of the file for the names to be read (text)
+counter = the number of times the files have been read (whole number)
+names = the list of names (array) (only 5 names allowed)
+currentLine = the current line being parsed (text)
+lineNumber = the current line number (whole number)
+temp = a temporary variable to store the lesser alphabetical line (text)
+nNames = number of Names (whole number)
+i = index for sorting (whole number)
+
+3. Instructions
+10 output introduction: "read names in a text file, sort them alphabetically, and output them to the screen"
+15 output prompt: "Please enter a file name: "
+20 input file 
+30 open file 
+31 set i = 0
+40 set counter = 0
+42 set lineNumber = 0
+45 initialize names as an array with size 5. 
+49 if counter is greater than or equal to 5, skip to step 105
+50 If it's at the end of the file, skip to step 105
+51 currentLine = the text located in line lineNumber in file 
+60 if currentLine is a blank line, skip to step 100
+62 if currentLine is already in names array, skip to step 90
+70 add currentLine to names array
+80 counter = counter + 1
+90 lineNumber = lineNumber + 1
+100 skip to step 49
+105 close file 
+106 nNames = counter
+*** Sort list ***
+110 counter = 0
+120 lineNumber = 0
+125 if counter >= nNames, skip to step 180
+130 if names[i] <= names[i+1], skip to step 170
+140 temp = names[i]
+150 names[i] = names[i+1]
+160 names[i+1] = temp
+165 i = i + 1
+170 skip to step 125
+*** Output all values ***
+180 output the whole array names, each with a seperated line
+200 EXIT
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+User has names in "beth", "beth", an empty line, "Adam" into a file, each on a new line
+Input: file = "myFriends.txt"
+Output:
+Adam
+beth
+
+10 read names in a text file, sort them alphabetically, and output them to the screen
+15 Please enter a file name: 
+20 file = myFriends.txt
+30 opened myFriends.txt
+31 i = 0
+40 counter = 0
+42 lineNumber = 0
+45 string names[5];
+49 false
+50 false
+51 currentLine = "beth"
+60 false
+62 false
+70 names[0] = "beth"
+80 counter = 0 + 1 = 1
+90 lineNumber = 0 + 1 = 1 
+49 false
+50 false
+51 currentLine = "beth"
+60 false
+62 true
+90 lineNumber = 1 + 1 = 2
+49 false
+50 false
+51 currentLine = ""
+60 true
+49 false
+50 false
+51 currentLine = "Adam"
+60 false
+62 false
+70 names[0] = "beth"
+80 counter = 1 + 1 = 2
+90 lineNumber = 2 + 1 = 3
+105 closed file 
+106 nNames = 2 
+110 counter = 0
+120 lineNumber = 0
+125 false
+130 false
+140 temp = "beth
+150 names[0] = "Adam"
+160 names[1] = "beth"
+165 i = 0 + 1 = 1
+125 false
+130 true
+125 true
+180 Adam
+    beth
+200 EXIT

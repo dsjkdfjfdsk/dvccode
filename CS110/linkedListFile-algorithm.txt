@@ -1,0 +1,121 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: calculate the average, highest, lowest scores and number of scores greater than the average, using a linked list
+
+2. Requirements
+INPUT:
+NONE
+
+PROCESSING:
+1. Read scores from input file
+2. Calculate average, highest, lowest score, number of scores greater than average
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+highest
+lowest
+nGreater
+average
+
+DATA:
+average = the average of all the numbers (decimal)
+nGreater = the number of scores greater than average (whole number)
+highest = the highest score (whole number)
+lowest = the lowest score (whole number)
+currentLineNumber = the current line of the file (whole number)
+sum = sum of all numbers (whole number)
+count = count of numbers (whole number)
+listNumbers = linked list of the currentLines (list)
+i = counter for calculating nGreater, lowest, highest (whole number)
+
+3. Instructions
+10 output introduction: "calculate the average, highest, lowest scores and number of scores greater than the average, using a linked list"
+*** Initialize values ***
+20 set average = 0
+30 set nGreater = 0
+40 set nLower = 0
+50 set highest = 0
+60 set lowest = 0
+65 set currentLineNumber = 0
+*** Read file ***
+70 open "scores.txt"
+75 if at the end of the file, skip to step 135
+80 for the line currentLineNumber, read the line and store it into currentLine
+85 add currentLine to listNumbers linked list
+110 sum = sum + currentLine
+120 count = count + 1
+125 currentLineNumber = currentLineNumber + 1
+130 skip to step 75
+135 highest = currentLine
+136 lowest = currentLine
+137 close "scores.txt"
+*** Calculate average ***
+140 average = sum / count 
+*** Calculate nGreater ***
+145 if i > count, skip to step 180
+147 if item i in listNumbers > highest, highest = currentLine
+148 if item i in listNumbers < lowest, lowest = currentLine 
+150 for item i in listNumbers, if it's less than or equal average, skip to step 170
+160 nGreater = nGreater + 1
+170 i = i + 1
+175 skip to step 145
+*** Output results ***
+180 output label: "Average: " + average
+190 output label: "Highest: " + highest
+200 output label: "Lowest: " + lowest 
+210 output label: "Number of scores greater than average: " + nGreater
+220 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+User types in 10, and 20 in scores.txt
+Input: 
+Output:
+Average: 15
+Highest: 20
+Lowest: 10
+Number of scores greater than average: 1
+
+10 calculate the average, highest, lowest scores and number of scores greater than the average, using a linked list
+20 average = 0
+30 nGreater = 0
+40 nLower = 0
+50 highest = 0
+60 lowest = 0
+65 currentLineNumber = 0
+70 open "scores.txt"
+75 false
+80 currentLine = 10
+85 10 added to listNumbers list
+110 sum = 0 + 10 = 10
+120 count = 0 + 1 = 1
+125 currentLineNumber = 0 + 1 = 1
+75 false
+80 currentLine = 20
+85 20 added to listNumbers list
+110 sum = 10 + 20 = 30
+120 count = 1 + 1 = 2
+125 currentLineNumber = 1 + 1 = 2
+75 true
+135 highest = 20
+136 lowest = 20
+137 closed "scores.txt"
+140 average = 30 / 2 = 15
+145 false
+147 false 
+148 false
+150 false
+160 nGreater = 0 + 1 = 1
+170 i = 0 + 1
+145 false
+147 false 
+148 true, lowest = 10
+150 true
+170 i = 1 + 1 = 2
+145 true
+Average: 15
+Highest: 20
+Lowest: 10
+Number of scores greater than average: 1
+220 END

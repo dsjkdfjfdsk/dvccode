@@ -1,0 +1,92 @@
+Name: Ethan Chiu
+Course: COMSC-110-1021
+
+1. Objective: Calculates and outputs the number of weeks that it will take to reach a total of one billion dollars or greater if you double your amount after every week.
+
+2. Requirements
+INPUT:
+amount
+
+PROCESSING:
+
+
+OUTPUT:
+Introduction (says what the objective is, who the author is, any user instructions)
+weeks
+
+DATA:
+amount = the initial amount of cents you start off with (whole number) (positive)
+weeks = the number of weeks it takes before you become a millionaire if you double after every week)
+
+3. Instructions
+10 output introduction: "Calculates and outputs the number of weeks that it will take to reach a total of one billion dollars or greater if you double your amount after every week."
+*** set initial values ***
+11 amount = 0
+12 weeks = 0
+*** Get the amount from user ***
+20 output prompt: "How many cents to start off with (whole number) (positive)? "
+30 input amount
+*** check to see if amount is already in the thousands, millions, or billions ***
+31 if amount >= 100,000, skip to step 35
+32 if amount >= 100,000,000, skip to step 37
+33 if amount >= 100,000,000,000, skip to step 39
+34 skip to step 50
+35 output label: "In " + weeks + " weeks, I will be a thousandaire!"
+36 skip to step 32
+37 output label: "In " + weeks + " weeks, I will be a millionaire!"
+38 skip to step 33
+39 output label: "In " + weeks + " weeks, I will be a billionaire!"
+40 skip to step 200
+*** Checks to see if amount is valid ***
+50 if amount > 0, skip to step 100
+60 output label: "Invalid input. Please type a positive whole number."
+70 skip to step 20
+*** Cycle to calculate how many weeks it takes to become a billionaire ***
+100 weeks = weeks + 1
+120 amount = amount * 2
+130 if amount >= 100,000,000,000, skip to step 160
+140 if amount >= 100,000,000, skip to step 180
+150 if amount >= 100,000, skip to step 190
+160 output label: "In " + weeks + " weeks, I will be a billionaire!"
+170 skip to step 200
+180 output label: "In " + weeks + " weeks, I will be a millionaire!"
+190 output label: "In " + weeks + " weeks, I will be a thousandaire!"
+195 skip to step 50
+200 END
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:
+A person starts out with 100,000,000,000 cents
+Input: amount = 100,000,000,000
+Output: 
+
+*** set initial values ***
+11 amount = 0
+12 weeks = 0
+*** Get the amount from user ***
+20 output prompt: "How many cents to start off with (whole number) (positive)? "
+30 input amount
+*** check to see if amount is already in the thousands, millions, or billions ***
+31 true
+35 In 0 weeks, I will be a thousandaire!
+32 true
+37 In 0 weeks, I will be a millionaire!
+33 true
+39 In 0 weeks, I will be a billionaire!
+200 END
+
+Test Case #2: 
+A person starts with -1 cents
+Input: amount = -1
+Output: Invalid input. Please type a positive whole number.
+10 Calculates and outputs the number of weeks that it will take to reach a total of one billion dollars or greater if you double your amount after every week.
+11 amount = 0
+12 weeks = 0
+20 How many cents to start off with (whole number) (positive)? 
+30 amount = -1
+31 false
+32 false
+33 false
+50 false
+60 Invalid input. Please type a positive whole number.
+20 How many cents to start off with (whole number) (positive)? 
