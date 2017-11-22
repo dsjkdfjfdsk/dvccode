@@ -1,12 +1,121 @@
-// Ethan Chiu
-// Library Application HW
-#include "Person.h"
-#include "Book.h"
 #include <iomanip>
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+class Person
+{
+    private:
+        string name;
+        int id;
+        string email;
+    public:
+        Person ()
+        {}
+        Person(int userID, string userName, string userEmail)
+        {
+            name = userName;
+            id = userID;
+            email = userEmail;
+        }
+
+        void setName(string userName)
+        {
+            name = userName;
+        }
+        void setID(int userID)
+        {
+            id = userID;
+        }
+        void setEmail(string userEmail)
+        {
+            email = userEmail;
+        }
+        int getID()
+        {
+            return id;
+        }
+        string getName()
+        {
+            return name;
+        }
+        string getEmail()
+        {
+            return email;
+        }
+};
+
+class Book
+{
+    private:
+        string title;
+        string author;
+        bool status;
+        Person *borrower;
+    public:
+        Book ()
+        {}
+        Book (string bookTitle, string bookAuthor, bool bookStatus)
+        {
+            title = bookTitle;
+            author = bookAuthor;
+            status = bookStatus;
+            borrower = NULL;
+        }
+        void setTitle(string bookTitle)
+        {
+            title = bookTitle;
+        }
+        void setAuthor(string bookAuthor)
+        {
+            author = bookAuthor;
+        }
+        void setStatus(bool bookStatus)
+        {
+            status = bookStatus;
+        }
+        void setPointer(Person *bookPointer)
+        {
+            borrower = bookPointer;
+        }
+        string getTitle()
+        {
+            return title;
+        }
+        string  getAuthor()
+        {
+            return author;
+        }
+        bool getStatus()
+        {
+            return status;
+        }
+        Person *getPointer()
+        {
+            return borrower;
+        }
+        void checkOut(Person *user)
+        {
+            if(status != true) 
+            {
+                status = true;
+                borrower = user;
+                //return true;
+            }
+            else
+            {
+                //return false;
+            }
+        }
+        void checkIn()
+        {
+            status = false;
+            borrower = NULL;
+        }
+};
+
+
 
 int main()
 {
@@ -65,3 +174,5 @@ int main()
     }
     
 }
+
+
