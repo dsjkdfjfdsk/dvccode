@@ -1,0 +1,93 @@
+Microsoft (R) Macro Assembler Version 14.00.23918.0	    02/20/18 09:17:54
+..\..\LabExercise4.asm					     Page 1 - 1
+
+
+				; Assignment #: Ch. 4 Lab Exercise
+				; Program Description:movzx/movsx practice & array 
+				; Author: Ethan Chiu
+				; Creation Date: 2/20/18
+
+				.386
+				.model flat,stdcall
+				.stack 4096
+				ExitProcess PROTO, dwExitCode:DWORD
+ 00000000			.data
+				;part 1
+ 00000000 0064			a WORD 100
+ 00000002 FF9C			b SWORD -100
+				;part 2
+ 00000004 0001 0002 0003	arrayD WORD 1,2,3,4
+	   0004
+ 00000000			.code
+ 00000000			main PROC
+					;part 1
+ 00000000  0F B7 05			movzx eax, a
+	   00000000 R
+ 00000007  0F BF 1D			movsx ebx, b
+	   00000002 R
+
+					;part 2
+ 0000000E  66| A1			mov ax, arrayD
+	   00000004 R
+ 00000014  66| 87 05			xchg ax, [arrayD+6]
+	   0000000A R
+ 0000001B  66| A3			mov arrayD, ax
+	   00000004 R
+ 00000021  66| A1			mov ax, arrayD+2
+	   00000006 R
+ 00000027  66| 87 05			xchg ax, [arrayD+4]
+	   00000008 R
+ 0000002E  66| A3			mov arrayD+2, ax
+	   00000006 R
+					
+
+					invoke ExitProcess,0
+ 00000034  6A 00	   *	    push   +000000000h
+ 00000036  E8 00000000 E   *	    call   ExitProcess
+ 0000003B			main ENDP
+				; (insert additional procedures here)
+				END main
+ Microsoft (R) Macro Assembler Version 14.00.23918.0	    02/20/18 09:17:54
+..\..\LabExercise4.asm					     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000000C DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000003B DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000003B Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+arrayD . . . . . . . . . . . . .	Word	 00000004 _DATA	
+a  . . . . . . . . . . . . . . .	Word	 00000000 _DATA	
+b  . . . . . . . . . . . . . . .	Word	 00000002 _DATA	
+
+	   0 Warnings
+	   0 Errors
+
